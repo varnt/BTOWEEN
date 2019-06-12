@@ -1,20 +1,15 @@
 package model;
 
 public class Nota {
-	private Nota Nota;
 	
-	public Nota(Nota nota) {
-		super();
-		Nota = nota;
+	private int codigoNota;
+
+	public Nota(int codigoNota) {
+		this.codigoNota = codigoNota;
 	}
 
-	public Nota getNota() {
-		return Nota;
+	public int getCodigoNota() {
+		return codigoNota;
 	}
-
-	public void setNota(Nota nota) {
-		Nota = nota;
-	}
-	
 
 }

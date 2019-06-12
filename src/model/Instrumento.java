@@ -1,21 +1,15 @@
 package model;
 
-public class Instrumento {
+public class Instrumento{
 	
-	private Instrumento Instrumento;
+	private int codigoInstrumento;
 
-	public Instrumento(Instrumento instrumento) {
-		super();
-		Instrumento = instrumento;
+	public Instrumento(int codigoInstrumento){
+		this.codigoInstrumento = codigoInstrumento;
 	}
 
-	public Instrumento getInstrumento() {
-		return Instrumento;
+	public int getCodigoInstrumento(){
+		return codigoInstrumento;
 	}
-
-	public void setInstrumento(Instrumento instrumento) {
-		Instrumento = instrumento;
-	}
-	
 	
 }

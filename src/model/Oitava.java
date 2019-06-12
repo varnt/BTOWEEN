@@ -2,21 +2,15 @@ package model;
 
 public class Oitava {
 
-	private Oitava Oitava;
+	private int codigoOitava;
 
-	public Oitava(Oitava oitava) {
-		super();
-		setOitava(oitava);
+	public Oitava(int codigoOitava) {
+		this.codigoOitava = codigoOitava;
 	}
 
-	public Oitava getOitava() {
-		return Oitava;
+	public int getCodigoOitava() {
+		return codigoOitava;
 	}
-
-	public void setOitava(Oitava oitava) {
-		Oitava = oitava;
-	}
-	
 	
 	
 }
