@@ -2,23 +2,14 @@ package model;
 
 public class BPM {
 
-	private BPM BPM;
+	private int codigoBPM;
 
-	public BPM(BPM bPM) {
-		super();
-		BPM = bPM;
+	public BPM(int codigoBPM) {
+		this.codigoBPM = codigoBPM;
 	}
 
-	public BPM getBPM() {
-		return BPM;
+	public int getCodigoBPM() {
+		return codigoBPM;
 	}
-
-	public void setBPM(BPM bPM) {
-		BPM = bPM;
-	}
-	
-	
-	
-	
-	
+		
 }
