@@ -28,7 +28,7 @@ public class Musica {
 	public void manipulaSom(int comando) {
 		
 		
-		switch()
+		//switch();
 		
 
 		
@@ -39,9 +39,3 @@ public class Musica {
 		
 	}
 	
-	
-	
-	
-	
-	
-}
