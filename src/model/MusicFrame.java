@@ -19,6 +19,24 @@ public class MusicFrame {
 		this.BPM = new BPM(codigoBPM);
 	
 	}
+
+	public Oitava getOitava() {
+		return Oitava;
+	}
+
+	public Nota getNota() {
+		return Nota;
+	}
+
+	public Instrumento getInstrumento() {
+		return Instrumento;
+	}
+
+	public BPM getBPM() {
+		return BPM;
+	}
+	
+	
 	
 	
 	

@@ -1,13 +1,10 @@
 package model;
+import java.util.ArrayList;
 
 public class Musica {
 
-	private MusicFrame musicFrame;
-	
-	
-	
-	
-
+	private MusicFrame atualFrame;
+	ArrayList<MusicFrame> listaFrames = new ArrayList <MusicFrame>();
 	
 	
 	
