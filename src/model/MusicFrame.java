@@ -20,6 +20,16 @@ public class MusicFrame {
 	
 	}
 
+	//novo frame para quando trocar apenas nota
+	public MusicFrame(Nota NovaNota, MusicFrame frameAtual) {
+			this.Nota = NovaNota;
+			this.BPM = frameAtual.BPM;
+			this.Instrumento = frameAtual.Instrumento;
+			this.Oitava = frameAtual.Oitava;
+	}
+	
+	
+
 	public Oitava getOitava() {
 		return Oitava;
 	}
