@@ -6,8 +6,39 @@ public class Musica {
 	private MusicFrame atualFrame;
 	ArrayList<MusicFrame> listaFrames = new ArrayList <MusicFrame>();
 	
-	//para cada mudança em um dos parametros da musica deve
-	//ser criado um novo elemento Frame para ser adicionado na lista
+	
+	public Musica() {
+		
+	}
+	
+	public Musica(MusicFrame atualFrame){
+		
+		this.atualFrame = atualFrame;
+		this.listaFrames.add(atualFrame);
+	
+	}
+	
+	public MusicFrame statusMusica() {
+	
+		return this.atualFrame;
+		
+	
+	}
+	
+	public void manipulaSom(int comando) {
+		
+		
+		switch()
+		
+
+		
+		}
+		
+		
+		
+		
+	}
+	
 	
 	
 	
