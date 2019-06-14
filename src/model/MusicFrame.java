@@ -32,7 +32,7 @@ public class MusicFrame {
 		return Instrumento;
 	}
 
-	public BPM getBPM(BPM bpm) {
+	public BPM getBPM() {
 		return BPM;
 	}
 	
@@ -51,8 +51,8 @@ public class MusicFrame {
 		return;
 	}
 
-	public void setBPM() {
-		this.BPM = BPM;
+	public void setBPM(BPM bpm) {
+		this.BPM = bpm;
 		return;
 	}
 	
