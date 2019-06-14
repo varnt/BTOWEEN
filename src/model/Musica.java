@@ -35,6 +35,11 @@ public class Musica {
 //ver qual vai ser o tipo de parametro!
 	//60 62 64 65 67 69 71 codigos das notas
 	public void mudaNota(int codigoNovaNota){
+	public void manipulaSom(int comando) {
+		
+		
+		//switch();
+		
 
 		final MusicFrame novoFrame;
 
@@ -50,3 +55,5 @@ public class Musica {
 	}
 	
 	}
+	}
+	

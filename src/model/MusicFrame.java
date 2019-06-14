@@ -46,7 +46,25 @@ public class MusicFrame {
 		return BPM;
 	}
 	
-	
+	public void setOitava(Oitava oitava) {
+		this.Oitava = oitava;
+		return;
+	}
+
+	public void setNota(Nota nota) {
+		this.Nota=nota;
+		return;
+	}
+
+	public void setInstrumento(Instrumento instrumento) {
+		this.Instrumento=instrumento;
+		return;
+	}
+
+	public void setBPM(BPM bpm) {
+		this.BPM = bpm;
+		return;
+	}
 	
 	
 	

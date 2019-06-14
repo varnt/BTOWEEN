@@ -11,5 +11,10 @@ public class Nota {
 	public int getCodigoNota() {
 		return codigoNota;
 	}
+	
+	public void setCodigoNota(int codigoNota) {
+		this.codigoNota = codigoNota;
+		return ;
+	}
 
 }
