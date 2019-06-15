@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Musica {
 
 	private MusicFrame atualFrame;
-	ArrayList<MusicFrame> listaFrames;
+	private ArrayList<MusicFrame> listaFrames;
 	
 	
 	public Musica() {
@@ -16,7 +16,6 @@ public class Musica {
 		
 		this.atualFrame = atualFrame;
 		this.listaFrames.add(atualFrame);
-	
 	}
 	
 	public void adicionaNovoFrame(MusicFrame novoFrame){
@@ -25,21 +24,19 @@ public class Musica {
 		
 	}
 	
-	public MusicFrame statusMusica() {
+	public MusicFrame frameAtual() {
 	
 		return this.atualFrame;
-		
 	
+	}
+	
+	public int tamanhoLista() {
+		return this.listaFrames.size();
 	}
 	
 //ver qual vai ser o tipo de parametro!
 	//60 62 64 65 67 69 71 codigos das notas
 	public void mudaNota(int codigoNovaNota){
-	public void manipulaSom(int comando) {
-		
-		
-		//switch();
-		
 
 		final MusicFrame novoFrame;
 
@@ -49,11 +46,9 @@ public class Musica {
 		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println("nota A adicionada");
+			System.out.println("nota "+ codigoNovaNota +" adicionada");	
+	}
+	
+}
 
-	
-	}
-	
-	}
-	}
 	

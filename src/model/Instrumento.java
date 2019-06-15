@@ -11,5 +11,11 @@ public class Instrumento{
 	public int getCodigoInstrumento(){
 		return codigoInstrumento;
 	}
+
+	public String toString() {
+		return "Instrumento codigoInstrumento=" + codigoInstrumento;
+	}
+	
+	
 	
 }

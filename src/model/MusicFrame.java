@@ -8,7 +8,11 @@ public class MusicFrame {
 	private BPM BPM;
 	
 	public MusicFrame() {
-		
+		//valores default
+		this.Oitava = new Oitava(1);
+		this.Nota = new Nota(1);
+		this.Instrumento = new Instrumento(1);
+		this.BPM = new BPM(1);
 	}
 	
 	public MusicFrame(int codigoOitava, int codigoNota, int codigoInstrumento, int codigoBPM) {
@@ -66,9 +70,13 @@ public class MusicFrame {
 		return;
 	}
 	
-	
-	
-	
+	public String toString() {
+		
+		return (""+ this.Nota + "\n" +
+						this.Oitava + "\n" +
+						this.Instrumento + "\n" +
+						this.BPM +"\n");
+	}
 	
 	
 

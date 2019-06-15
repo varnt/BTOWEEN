@@ -21,5 +21,11 @@ public class Oitava {
 		this.codigoOitava = novaOitava;
 		System.out.println("diminuiu oitava em: " + this.codigoOitava);
 	}
+
+	public String toString() {
+		return "Oitava codigoOitava=" + codigoOitava;
+	}
+	
+	
 	
 }

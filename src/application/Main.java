@@ -29,9 +29,7 @@ public class Main {
 		
 			}
 		
-		System.out.println("Tamanho da lista:");
-				
-	
+		System.out.println("Elementos na lista: " + musica.tamanhoLista() + "\n" + musica.frameAtual().toString());
 
 
 }

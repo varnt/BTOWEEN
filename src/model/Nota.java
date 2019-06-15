@@ -17,4 +17,11 @@ public class Nota {
 		return ;
 	}
 
+	public String toString() {
+		return "Nota codigoNota=" + codigoNota;
+		
+	}
+	
+	
+
 }

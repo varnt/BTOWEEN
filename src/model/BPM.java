@@ -11,5 +11,11 @@ public class BPM {
 	public int getCodigoBPM() {
 		return codigoBPM;
 	}
+
+	public String toString() {
+		return "BPM codigoBPM=" + codigoBPM ;
+	}
+	
+	
 		
 }
