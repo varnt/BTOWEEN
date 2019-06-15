@@ -12,6 +12,9 @@ public class Main {
 		Scanner ler = new Scanner(System.in);
 			
 		System.out.println("Digite o comando: ");
+	
+	
+	for(int i =0 ; i<2; i++) {
 		
 		char entrada = ler.nextLine().charAt(0);
 
@@ -29,8 +32,11 @@ public class Main {
 		
 			}
 		
-		System.out.println("Elementos na lista: " + musica.tamanhoLista() + "\n" + musica.frameAtual().toString());
-
+	
+		
+		System.out.println("Elementos na lista: " + musica.tamanhoLista() + "\n" + musica.frameAtual().toString() + "\n");
+		
+	}
 
 }
 	

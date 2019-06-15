@@ -27,7 +27,7 @@ public class Musica {
 	public MusicFrame frameAtual() {
 	
 		return this.atualFrame;
-	
+		
 	}
 	
 	public int tamanhoLista() {
@@ -42,11 +42,24 @@ public class Musica {
 
 		final Nota novaNota = new Nota(codigoNovaNota);
 		
-		novoFrame = new MusicFrame(novaNota, atualFrame);
+		novoFrame = new MusicFrame(novaNota, this.atualFrame);
 		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println("nota "+ codigoNovaNota +" adicionada");	
+			System.out.println(novoFrame.getNota() +" adicionada");	
+	}
+	
+	public void mudaOitava(int codigoNovaOitava) {
+		final MusicFrame novoFrame;
+		
+		final Oitava novaOitava = new Oitava(codigoNovaOitava);
+		
+		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
+		this.adicionaNovoFrame(novoFrame);
+		this.atualFrame = novoFrame;
+			System.out.println(novoFrame.getOitava() + "adicionada");
+		
+		
 	}
 	
 }
