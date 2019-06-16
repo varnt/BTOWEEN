@@ -49,6 +49,14 @@ public class MusicFrame {
 		this.Oitava = atualFrame.Oitava;		
 	}
 
+	public MusicFrame(model.BPM novoBPM, MusicFrame atualFrame) {
+		this.BPM = novoBPM;
+		this.Instrumento = atualFrame.Instrumento;
+		this.Nota = atualFrame.Nota;
+		this.Oitava = atualFrame.Oitava;
+		
+	}
+
 	public Oitava getOitava() {
 		return Oitava;
 	}

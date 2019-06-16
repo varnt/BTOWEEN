@@ -64,6 +64,16 @@ public class Musica {
 		
 	}
 	
+	public void mudaBPM(int codigoNovoBPM) {
+		final MusicFrame novoFrame;
+		final BPM novoBPM = new BPM(codigoNovoBPM);
+		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
+		this.adicionaNovoFrame(novoFrame);
+		this.atualFrame = novoFrame;
+			System.out.println(novoFrame.getBPM() + "adicionado");
+	
+	}
+	
 	
 	
 }
