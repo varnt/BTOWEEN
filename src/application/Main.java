@@ -17,7 +17,9 @@ public class Main {
 	for(int i =0 ; i<2; i++) {
 		
 		char entrada = ler.nextLine().charAt(0);
-
+		//colocar esse switch na classe Musica. Onde vai ter um método "controladorDeSom"
+		//e para cada codigo faz-se a ação necessária
+		//não enviar um magic number, mas sim o objeto a ser adicionado no novo frameMusic
 		switch(entrada){
 		
 		case 'A':
