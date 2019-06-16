@@ -25,7 +25,7 @@ public class MusicFrame {
 	}
 
 	//novo frame para quando trocar apenas nota
-	public MusicFrame(Nota NovaNota, MusicFrame atualFrame) {
+	public MusicFrame(model.Nota NovaNota, MusicFrame atualFrame) {
 			this.Nota = NovaNota;
 			this.BPM = atualFrame.BPM;
 			this.Instrumento = atualFrame.Instrumento;
@@ -34,12 +34,19 @@ public class MusicFrame {
 	
 	
 
-	public MusicFrame(Oitava novaOitava, MusicFrame atualFrame) {
+	public MusicFrame(model.Oitava novaOitava, MusicFrame atualFrame) {
 		this.Oitava = novaOitava;
 		this.BPM = atualFrame.BPM;
 		this.Instrumento = atualFrame.Instrumento;
 		this.Oitava = atualFrame.Oitava;
 	
+	}
+
+	public MusicFrame(model.Instrumento novoInstrumento, MusicFrame atualFrame) {
+		this.Instrumento = novoInstrumento;
+		this.BPM = atualFrame.BPM;
+		this.Nota = atualFrame.Nota;
+		this.Oitava = atualFrame.Oitava;		
 	}
 
 	public Oitava getOitava() {

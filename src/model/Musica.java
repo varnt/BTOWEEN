@@ -34,16 +34,12 @@ public class Musica {
 		return this.listaFrames.size();
 	}
 	
-//ver qual vai ser o tipo de parametro!
+	//modificar os parametros para serem enviados os respectivos objetos
 	//60 62 64 65 67 69 71 codigos das notas
 	public void mudaNota(int codigoNovaNota){
-
 		final MusicFrame novoFrame;
-
-		final Nota novaNota = new Nota(codigoNovaNota);
-		
-		novoFrame = new MusicFrame(novaNota, this.atualFrame);
-		
+		final Nota novaNota = new Nota(codigoNovaNota);		
+		novoFrame = new MusicFrame(novaNota, this.atualFrame);		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 			System.out.println(novoFrame.getNota() +" adicionada");	
@@ -51,16 +47,24 @@ public class Musica {
 	
 	public void mudaOitava(int codigoNovaOitava) {
 		final MusicFrame novoFrame;
-		
 		final Oitava novaOitava = new Oitava(codigoNovaOitava);
-		
 		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 			System.out.println(novoFrame.getOitava() + "adicionada");
-		
+	}
+	
+	public void mudaInstrumento(int codigoNovoInstrumento){
+		final MusicFrame novoFrame;
+		final Instrumento novoInstrumento = new Instrumento(codigoNovoInstrumento);
+		novoFrame = new MusicFrame(novoInstrumento, this.atualFrame);		
+		this.adicionaNovoFrame(novoFrame);
+		this.atualFrame = novoFrame;
+			System.out.println(novoFrame.getInstrumento() + "adicionado");
 		
 	}
+	
+	
 	
 }
 
