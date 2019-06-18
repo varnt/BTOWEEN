@@ -5,7 +5,7 @@ public class Musica {
 
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
-	
+	final int A=69, B=71, C=60, D = 62, E=64, F=65, G=67, SILENCIO = 0;
 	
 	public ArrayList<MusicFrame> getListaFrames() {
 		return this.listaFrames;
@@ -38,15 +38,13 @@ public class Musica {
 		return this.listaFrames.size();
 	}
 	
-	//modificar os parametros para serem enviados os respectivos objetos
-	//60 62 64 65 67 69 71 codigos das notas
 	public void mudaNota(int codigoNovaNota){
 		final MusicFrame novoFrame;
 		final Nota novaNota = new Nota(codigoNovaNota);		
 		novoFrame = new MusicFrame(novaNota, this.atualFrame);		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println(novoFrame.getNota() +" adicionada");	
+			System.out.println(novoFrame.getNota() +" adicionada\n");	
 	}
 	
 	public void mudaOitava(int codigoNovaOitava) {
@@ -55,7 +53,7 @@ public class Musica {
 		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println(novoFrame.getOitava() + "adicionada");
+			System.out.println(novoFrame.getOitava() + "adicionada\n");
 	}
 	
 	public void mudaInstrumento(int codigoNovoInstrumento){
@@ -64,7 +62,7 @@ public class Musica {
 		novoFrame = new MusicFrame(novoInstrumento, this.atualFrame);		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println(novoFrame.getInstrumento() + "adicionado");
+			System.out.println(novoFrame.getInstrumento() + "adicionado\n");
 		
 	}
 	
@@ -74,8 +72,101 @@ public class Musica {
 		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-			System.out.println(novoFrame.getBPM() + "adicionado");
+			System.out.println(novoFrame.getBPM() + "adicionado\n");
 	
+	}
+	
+
+	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
+		
+		
+		switch(caractereEntrada) {
+		case 'A':
+			this.mudaNota(A);
+		break;
+		
+		case 'B':
+			this.mudaNota(B);
+		break;
+		
+		case 'C':
+			this.mudaNota(C);
+		break;
+		
+		case 'D':
+			this.mudaNota(D);
+		break;
+		
+		case 'E':
+			this.mudaNota(E);
+		break;
+		
+		case'F':
+			this.mudaNota(F);
+		break;
+		
+		case 'G':
+			this.mudaNota(G);
+		break;
+		
+		case 'a':
+			if(caractereAnterior=='A') {
+				this.mudaNota(A);
+			}
+			
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'b':
+		if(caractereAnterior == 'B')
+				this.mudaNota(B);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'c':
+			if(caractereAnterior == 'C')
+				this.mudaNota(C);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'd':
+			if(caractereAnterior == 'D')
+				this.mudaNota(D);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'e':
+			if(caractereAnterior == 'E')
+				this.mudaNota(E);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'f':
+			if(caractereAnterior == 'F')
+				this.mudaNota(F);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		case 'g':
+			if(caractereAnterior == 'G')
+				this.mudaNota(G);
+			else
+				this.mudaNota(SILENCIO);
+		break;
+		
+		
+			
+		
+		
+		
+		}
+		
 	}
 	
 	

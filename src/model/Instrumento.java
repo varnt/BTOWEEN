@@ -1,21 +1,19 @@
 package model;
 
-public class Instrumento{
-	
+public class Instrumento {
+
 	private int codigoInstrumento;
 
-	public Instrumento(int codigoInstrumento){
+	public Instrumento(int codigoInstrumento) {
 		this.codigoInstrumento = codigoInstrumento;
 	}
 
-	public int getCodigoInstrumento(){
+	public int getCodigoInstrumento() {
 		return codigoInstrumento;
 	}
 
 	public String toString() {
 		return "Instrumento codigoInstrumento=" + codigoInstrumento;
 	}
-	
-	
-	
+
 }
