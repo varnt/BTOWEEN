@@ -85,14 +85,25 @@ public class Musica {
 
 	}
 
-	public void mudaVolume(double codigoNovoVolume) {
+
+	public void mudaVolume(int codigoNovoVolume) {
+
 		final MusicFrame novoFrame;
 		final Volume novoVolume = new Volume(codigoNovoVolume);
 		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
+
 		System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
 	}
+
+	
+
+	// IMPLEMENTARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	// private void dobraVolume() {
+	//
+	// }
+
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
@@ -109,6 +120,15 @@ public class Musica {
 			this.mudaVolume(this.atualFrame.getCodigoVolume() * aumenta10porcento);
 			return;
 		}
+
+			return;
+		}
+
+		// if(this.ehVogalNaoNota(caractereEntrada)){
+		// this.(atual);
+
+		// }
+
 
 		if (this.ehConsoanteNaoNota(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
@@ -165,6 +185,7 @@ public class Musica {
 
 		case ESPACO:
 			this.mudaVolume(this.atualFrame.getCodigoVolume() * DOBRA_VOLUME);
+			//this.dobraVolume();
 			break;
 
 		case '!':
