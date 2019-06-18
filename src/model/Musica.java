@@ -7,6 +7,10 @@ public class Musica {
 	private ArrayList<MusicFrame> listaFrames;
 	
 	
+	public ArrayList<MusicFrame> getListaFrames() {
+		return this.listaFrames;
+	}
+
 	public Musica() {
 		this.atualFrame = new MusicFrame();
 		this.listaFrames = new ArrayList <MusicFrame>();
