@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class Musica {
 
-	private static final double aumenta10porcento = 1.1, DOBRA_VOLUME = 2.0;
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
-	private static final int A = 69, B = 71, C = 60, D = 62, E = 64, F = 65, G = 67, SILENCIO = 0, ESPACO = 32,
-			HARPSICHORD = 7;
+	
+	private static final int A = 69, B = 71, C = 60, D = 62, E = 64, F = 65, G = 67, SILENCIO = 0, ESPACO = 32;
+	private static final double aumenta10porcento = 1.1;
+	private static final double DOBRA_VOLUME = 2.0;
+	private static final int HARPSICHORD = 7;
 	private static final int OITAVA_DEFAULT = 4;
+	private static final int TUBULAR_BELLS = 15;
+	private static final int PAN_FLUTE = 76;
+	private static final int CHURCH_ORGAN = 20;
 
 	public ArrayList<MusicFrame> getListaFrames() {
 		return this.listaFrames;
@@ -79,7 +84,7 @@ public class Musica {
 		System.out.println(novoFrame.getBPM() + "adicionado\n");
 
 	}
-	
+
 	public void mudaVolume(double codigoNovoVolume) {
 		final MusicFrame novoFrame;
 		final Volume novoVolume = new Volume(codigoNovoVolume);
@@ -91,45 +96,44 @@ public class Musica {
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
-				
 		if (this.ehNotaMinuscula(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
 			else
 				this.mudaNota(SILENCIO);
-			
+
 			return;
 		}
-		
-		if(this.ehVogalNaoNota(caractereEntrada)){
-			this.mudaVolume(this.atualFrame.getCodigoVolume()*aumenta10porcento);	
+
+		if (this.ehVogalNaoNota(caractereEntrada)) {
+			this.mudaVolume(this.atualFrame.getCodigoVolume() * aumenta10porcento);
 			return;
 		}
-		
-		if(this.ehConsoanteNaoNota(caractereEntrada)) {
+
+		if (this.ehConsoanteNaoNota(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
 			else
 				this.mudaNota(SILENCIO);
-			
+
 			return;
 		}
-		
-		if(this.ehNumero(caractereEntrada)) {
+
+		if (this.ehNumero(caractereEntrada)) {
 			this.mudaInstrumento(this.atualFrame.getCodigotInstrumento() + Character.getNumericValue(caractereEntrada));
 		}
-		
-		if(caractereEntrada == '?' || caractereEntrada == '.') {
-			if(this.atualFrame.getCodigoOitava()<8){
-				this.mudaOitava(this.atualFrame.getCodigoOitava()+1);
+
+		if (caractereEntrada == '?' || caractereEntrada == '.') {
+			if (this.atualFrame.getCodigoOitava() < 8) {
+				this.mudaOitava(this.atualFrame.getCodigoOitava() + 1);
 			}
-			
+
 			else {
 				this.mudaOitava(OITAVA_DEFAULT);
 			}
-			
-		}
 
+		}
+		
 		switch (caractereEntrada) {
 		case 'A':
 			this.mudaNota(A);
@@ -158,48 +162,70 @@ public class Musica {
 		case 'G':
 			this.mudaNota(G);
 			break;
-			
+
 		case ESPACO:
-			this.mudaVolume(this.atualFrame.getCodigoVolume()*DOBRA_VOLUME);
+			this.mudaVolume(this.atualFrame.getCodigoVolume() * DOBRA_VOLUME);
 			break;
 
 		case '!':
 			this.mudaInstrumento(HARPSICHORD);
 			break;
 
+		case 10:
+			this.mudaInstrumento(TUBULAR_BELLS);
+			break;
+
+		case ';':
+			this.mudaInstrumento(PAN_FLUTE);
+			break;
+
+		case ',':
+			this.mudaInstrumento(CHURCH_ORGAN);
+			break;
+
+		default:
+			if (this.ehNota(caractereAnterior))
+				this.repeteFrame();
+			else
+				this.mudaNota(SILENCIO);
+			break;
 		}
+
+		return;
 
 	}
 
 	private boolean ehNumero(char caractere) {
-		if(caractere>='0' && caractere <='9') {
+		if (caractere >= '0' && caractere <= '9') {
 			return true;
 		}
-		
+
 		else
 			return false;
 	}
 
-	private boolean ehConsoanteNaoNota(char caractere){
-		if((caractere >= 'H' && caractere <= 'Z') || (caractere >= 'h' && caractere <= 'z')) {
-			if(caractere != 'I' && caractere != 'i' && caractere != 'O' && caractere!='o' && caractere !='U' && caractere != 'u')
+	private boolean ehConsoanteNaoNota(char caractere) {
+		if ((caractere >= 'H' && caractere <= 'Z') || (caractere >= 'h' && caractere <= 'z')) {
+			if (caractere != 'I' && caractere != 'i' && caractere != 'O' && caractere != 'o' && caractere != 'U'
+					&& caractere != 'u')
 				return true;
 			else
 				return false;
-		}
-		else
-		return false;
+		} else
+			return false;
 	}
 
 	private boolean ehVogalNaoNota(char caractere) {
-		if(caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u' || caractere == 'U')
+		if (caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u'
+				|| caractere == 'U')
 			return true;
 		else
 			return false;
 	}
 
 	private boolean ehNota(char caractere) {
-		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F|| caractere == G)
+		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F
+				|| caractere == G)
 			return true;
 
 		else
