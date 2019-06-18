@@ -1,14 +1,16 @@
 package application;
 import java.util.Scanner;
-
 import model.MusicFrame;
 import model.Musica;
+import controlller.Arquivo;
 
 public class Main {
 
 	public static void main(String[] args) {
-	
+		Arquivo arquivo = new Arquivo();
 		Musica musica = new Musica();
+		
+		arquivo.LeArquivo();
 		
 		Scanner ler = new Scanner(System.in);
 			
