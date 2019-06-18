@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class Musica {
 
+	private static final double aumenta10porcento = 1.1, DOBRA_VOLUME = 2.0;
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
 	private static final int A = 69, B = 71, C = 60, D = 62, E = 64, F = 65, G = 67, SILENCIO = 0, ESPACO = 32,
 			HARPSICHORD = 7;
+	private static final int OITAVA_DEFAULT = 4;
 
 	public ArrayList<MusicFrame> getListaFrames() {
 		return this.listaFrames;
@@ -65,8 +67,7 @@ public class Musica {
 		novoFrame = new MusicFrame(novoInstrumento, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getInstrumento() + "adicionado\n");
-
+		System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
 	}
 
 	public void mudaBPM(int codigoNovoBPM) {
@@ -79,23 +80,18 @@ public class Musica {
 
 	}
 	
-	public void mudaVolume(int codigoNovoVolume) {
+	public void mudaVolume(double codigoNovoVolume) {
 		final MusicFrame novoFrame;
 		final Volume novoVolume = new Volume(codigoNovoVolume);
 		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getVolume() + "adicionado\n");
-	}
-
-	// IMPLEMENTARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	private void dobraVolume() {
-
+		System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
 	}
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
-		
+				
 		if (this.ehNotaMinuscula(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
@@ -105,10 +101,34 @@ public class Musica {
 			return;
 		}
 		
-		//if(this.ehVogalNaoNota(caractereEntrada)){
-		//	this.(atual);
+		if(this.ehVogalNaoNota(caractereEntrada)){
+			this.mudaVolume(this.atualFrame.getCodigoVolume()*aumenta10porcento);	
+			return;
+		}
+		
+		if(this.ehConsoanteNaoNota(caractereEntrada)) {
+			if (this.ehNota(caractereAnterior))
+				this.repeteFrame();
+			else
+				this.mudaNota(SILENCIO);
 			
-		//}
+			return;
+		}
+		
+		if(this.ehNumero(caractereEntrada)) {
+			this.mudaInstrumento(this.atualFrame.getCodigotInstrumento() + Character.getNumericValue(caractereEntrada));
+		}
+		
+		if(caractereEntrada == '?' || caractereEntrada == '.') {
+			if(this.atualFrame.getCodigoOitava()<8){
+				this.mudaOitava(this.atualFrame.getCodigoOitava()+1);
+			}
+			
+			else {
+				this.mudaOitava(OITAVA_DEFAULT);
+			}
+			
+		}
 
 		switch (caractereEntrada) {
 		case 'A':
@@ -140,7 +160,7 @@ public class Musica {
 			break;
 			
 		case ESPACO:
-			this.dobraVolume();
+			this.mudaVolume(this.atualFrame.getCodigoVolume()*DOBRA_VOLUME);
 			break;
 
 		case '!':
@@ -149,6 +169,26 @@ public class Musica {
 
 		}
 
+	}
+
+	private boolean ehNumero(char caractere) {
+		if(caractere>='0' && caractere <='9') {
+			return true;
+		}
+		
+		else
+			return false;
+	}
+
+	private boolean ehConsoanteNaoNota(char caractere){
+		if((caractere >= 'H' && caractere <= 'Z') || (caractere >= 'h' && caractere <= 'z')) {
+			if(caractere != 'I' && caractere != 'i' && caractere != 'O' && caractere!='o' && caractere !='U' && caractere != 'u')
+				return true;
+			else
+				return false;
+		}
+		else
+		return false;
 	}
 
 	private boolean ehVogalNaoNota(char caractere) {

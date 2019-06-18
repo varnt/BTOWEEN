@@ -77,24 +77,28 @@ public class MusicFrame {
 		
 	}
 
+	public int getCodigoOitava() {
+		return this.Oitava.getCodigoOitava();
+	}
+	
 	public Oitava getOitava() {
-		return Oitava;
+		return this.Oitava;
 	}
 
 	public Nota getNota() {
 		return Nota;
 	}
 
-	public Instrumento getInstrumento() {
-		return Instrumento;
+	public int getCodigotInstrumento() {
+		return this.Instrumento.getCodigoInstrumento();
 	}
 
 	public BPM getBPM() {
 		return BPM;
 	}
 	
-	public Volume getVolume() {
-		return Volume;
+	public double getCodigoVolume() {
+		return this.Volume.getCodigoVolume();
 	}
 
 	public void setOitava(Oitava oitava) {

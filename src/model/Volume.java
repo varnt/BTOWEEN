@@ -2,15 +2,15 @@ package model;
 
 public class Volume {
 	
-	private int codigoVolume;
+	private double codigoVolume;
 	
 	
-	public Volume(int codigoVolume) {
+	public Volume(double codigoVolume) {
 		this.codigoVolume = codigoVolume;
 	}
 
-	public int getCodigoVolume() {
-		return codigoVolume;
+	public double getCodigoVolume() {
+		return this.codigoVolume;
 	}
 	
 	public void mudaVolume(int codigoVolume) {
