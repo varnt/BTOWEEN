@@ -13,7 +13,7 @@ public class Instrumento {
 	}
 
 	public String toString() {
-		return "Instrumento codigoInstrumento=" + codigoInstrumento;
+		return "Instrumento codigoInstrumento=" + this.codigoInstrumento;
 	}
 
 }

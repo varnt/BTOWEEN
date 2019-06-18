@@ -18,7 +18,7 @@ public class Nota {
 	}
 
 	public String toString() {
-		return "Nota codigoNota=" + codigoNota;
+		return "Nota codigoNota=" + this.codigoNota;
 
 	}
 
