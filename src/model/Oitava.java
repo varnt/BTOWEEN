@@ -23,7 +23,7 @@ public class Oitava {
 	}
 
 	public String toString() {
-		return "Oitava codigoOitava=" + codigoOitava;
+		return "Oitava codigoOitava=" + this.codigoOitava;
 	}
 	
 	

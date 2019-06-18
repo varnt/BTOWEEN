@@ -13,7 +13,7 @@ public class BPM {
 	}
 
 	public String toString() {
-		return "BPM codigoBPM=" + codigoBPM;
+		return "BPM codigoBPM=" + this.codigoBPM;
 	}
 
 }
