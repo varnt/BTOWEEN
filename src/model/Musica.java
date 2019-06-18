@@ -78,7 +78,7 @@ public class Musica {
 		System.out.println(novoFrame.getBPM() + "adicionado\n");
 
 	}
-	
+
 	public void mudaVolume(int codigoNovoVolume) {
 		final MusicFrame novoFrame;
 		final Volume novoVolume = new Volume(codigoNovoVolume);
@@ -89,26 +89,25 @@ public class Musica {
 	}
 
 	// IMPLEMENTARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	private void dobraVolume() {
-
-	}
+	// private void dobraVolume() {
+	//
+	// }
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
-		
 		if (this.ehNotaMinuscula(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
 			else
 				this.mudaNota(SILENCIO);
-			
+
 			return;
 		}
-		
-		//if(this.ehVogalNaoNota(caractereEntrada)){
-		//	this.(atual);
-			
-		//}
+
+		// if(this.ehVogalNaoNota(caractereEntrada)){
+		// this.(atual);
+
+		// }
 
 		switch (caractereEntrada) {
 		case 'A':
@@ -138,9 +137,9 @@ public class Musica {
 		case 'G':
 			this.mudaNota(G);
 			break;
-			
+
 		case ESPACO:
-			this.dobraVolume();
+			//this.dobraVolume();
 			break;
 
 		case '!':
@@ -152,14 +151,16 @@ public class Musica {
 	}
 
 	private boolean ehVogalNaoNota(char caractere) {
-		if(caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u' || caractere == 'U')
+		if (caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u'
+				|| caractere == 'U')
 			return true;
 		else
 			return false;
 	}
 
 	private boolean ehNota(char caractere) {
-		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F|| caractere == G)
+		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F
+				|| caractere == G)
 			return true;
 
 		else
