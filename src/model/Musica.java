@@ -86,10 +86,10 @@ public class Musica {
 	}
 
 
-	public void mudaVolume(int codigoNovoVolume) {
+	public void mudaVolume(double h) {
 
 		final MusicFrame novoFrame;
-		final Volume novoVolume = new Volume(codigoNovoVolume);
+		final Volume novoVolume = new Volume(h);
 		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
@@ -121,8 +121,6 @@ public class Musica {
 			return;
 		}
 
-			return;
-		}
 
 		// if(this.ehVogalNaoNota(caractereEntrada)){
 		// this.(atual);
