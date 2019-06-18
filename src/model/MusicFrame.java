@@ -6,6 +6,9 @@ public class MusicFrame {
 	private Nota Nota;
 	private Instrumento Instrumento;
 	private BPM BPM;
+	private Volume Volume;
+
+
 
 	public MusicFrame() {
 		// valores default
@@ -13,14 +16,16 @@ public class MusicFrame {
 		this.Nota = new Nota(1);
 		this.Instrumento = new Instrumento(1);
 		this.BPM = new BPM(1);
+		this.Volume = new Volume(1);
 	}
 
-	public MusicFrame(int codigoOitava, int codigoNota, int codigoInstrumento, int codigoBPM) {
+	public MusicFrame(int codigoOitava, int codigoNota, int codigoInstrumento, int codigoBPM, int codigoVolume) {
 
 		this.Oitava = new Oitava(codigoOitava);
 		this.Nota = new Nota(codigoNota);
 		this.Instrumento = new Instrumento(codigoInstrumento);
 		this.BPM = new BPM(codigoBPM);
+		this.Volume = new Volume(codigoVolume);
 
 	}
 
@@ -30,6 +35,7 @@ public class MusicFrame {
 		this.BPM = atualFrame.BPM;
 		this.Instrumento = atualFrame.Instrumento;
 		this.Oitava = atualFrame.Oitava;
+		this.Volume = atualFrame.Volume;
 	}
 
 	// quando trocar apenas oitava
@@ -38,6 +44,7 @@ public class MusicFrame {
 		this.BPM = atualFrame.BPM;
 		this.Instrumento = atualFrame.Instrumento;
 		this.Nota = atualFrame.Nota;
+		this.Volume = atualFrame.Volume;
 
 	}
 
@@ -47,6 +54,7 @@ public class MusicFrame {
 		this.BPM = atualFrame.BPM;
 		this.Nota = atualFrame.Nota;
 		this.Oitava = atualFrame.Oitava;
+		this.Volume = atualFrame.Volume;
 	}
 
 	// quando trocar apenas BPM
@@ -55,7 +63,18 @@ public class MusicFrame {
 		this.Instrumento = atualFrame.Instrumento;
 		this.Nota = atualFrame.Nota;
 		this.Oitava = atualFrame.Oitava;
+		this.Volume = atualFrame.Volume;
 
+	}
+
+	//quando troca apenas volume
+	public MusicFrame(model.Volume novoVolume, MusicFrame atualFrame) {
+		this.Volume = novoVolume;
+		this.BPM = atualFrame.BPM;
+		this.Instrumento = atualFrame.Instrumento;
+		this.Nota = atualFrame.Nota;
+		this.Oitava = atualFrame.Oitava;
+		
 	}
 
 	public Oitava getOitava() {
@@ -72,6 +91,10 @@ public class MusicFrame {
 
 	public BPM getBPM() {
 		return BPM;
+	}
+	
+	public Volume getVolume() {
+		return Volume;
 	}
 
 	public void setOitava(Oitava oitava) {
@@ -93,10 +116,16 @@ public class MusicFrame {
 		this.BPM = bpm;
 		return;
 	}
+	
+	public void setVolume(Volume volume) {
+		this.Volume = volume;
+		return;
+	}
+
 
 	public String toString() {
 
-		return ("" + this.Nota + "\n" + this.Oitava + "\n" + this.Instrumento + "\n" + this.BPM + "\n");
+		return ("" + this.Nota + "\n" + this.Oitava + "\n" + this.Instrumento + "\n" + this.BPM + "\n" + this.Volume + "\n");
 	}
 
 }

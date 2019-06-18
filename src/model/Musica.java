@@ -78,6 +78,15 @@ public class Musica {
 		System.out.println(novoFrame.getBPM() + "adicionado\n");
 
 	}
+	
+	public void mudaVolume(int codigoNovoVolume) {
+		final MusicFrame novoFrame;
+		final Volume novoVolume = new Volume(codigoNovoVolume);
+		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
+		this.adicionaNovoFrame(novoFrame);
+		this.atualFrame = novoFrame;
+		System.out.println(novoFrame.getVolume() + "adicionado\n");
+	}
 
 	// IMPLEMENTARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	private void dobraVolume() {
@@ -86,14 +95,20 @@ public class Musica {
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
+		
 		if (this.ehNotaMinuscula(caractereEntrada)) {
-			if (this.EhNota(caractereAnterior))
+			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
 			else
 				this.mudaNota(SILENCIO);
 			
 			return;
 		}
+		
+		//if(this.ehVogalNaoNota(caractereEntrada)){
+		//	this.(atual);
+			
+		//}
 
 		switch (caractereEntrada) {
 		case 'A':
@@ -123,31 +138,7 @@ public class Musica {
 		case 'G':
 			this.mudaNota(G);
 			break;
-
-		/*
-		 * case 'a': if(caractereAnterior=='A') { this.mudaNota(A); }
-		 * 
-		 * else this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'b': if(caractereAnterior == 'B') this.mudaNota(B); else
-		 * this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'c': if(caractereAnterior == 'C') this.mudaNota(C); else
-		 * this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'd': if(caractereAnterior == 'D') this.repeteFrame(); else
-		 * this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'e': if(caractereAnterior == 'E') this.mudaNota(E); else
-		 * this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'f': if(caractereAnterior == 'F') this.mudaNota(F); else
-		 * this.mudaNota(SILENCIO); break;
-		 * 
-		 * case 'g': if(caractereAnterior == 'G') this.mudaNota(G); else
-		 * this.mudaNota(SILENCIO); break;
-		 */
-
+			
 		case ESPACO:
 			this.dobraVolume();
 			break;
@@ -160,17 +151,24 @@ public class Musica {
 
 	}
 
-	private boolean EhNota(char caracter) {
-		if (caracter == A || caracter == B || caracter == C || caracter == D || caracter == E || caracter == F|| caracter == G)
+	private boolean ehVogalNaoNota(char caractere) {
+		if(caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u' || caractere == 'U')
+			return true;
+		else
+			return false;
+	}
+
+	private boolean ehNota(char caractere) {
+		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F|| caractere == G)
 			return true;
 
 		else
 			return false;
 	}
 
-	private boolean ehNotaMinuscula(char caracter) {
-		if (caracter == 'a' || caracter == 'b' || caracter == 'c' || caracter == 'd' || caracter == 'e'
-				|| caracter == 'f' || caracter == 'g')
+	private boolean ehNotaMinuscula(char caractere) {
+		if (caractere == 'a' || caractere == 'b' || caractere == 'c' || caractere == 'd' || caractere == 'e'
+				|| caractere == 'f' || caractere == 'g')
 			return true;
 
 		else

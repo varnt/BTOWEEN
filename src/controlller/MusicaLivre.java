@@ -9,7 +9,7 @@ public class MusicaLivre {
 	public MusicaLivre() {
 		// TODO Auto-generated constructor stub
 	
-		private ArrayList<char> atualmusica;
+	//	private ArrayList<char> atualmusica;
 	}
 
 	public static void main(String[] args) {
