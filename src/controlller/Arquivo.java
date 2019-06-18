@@ -14,6 +14,7 @@ public class Arquivo {
 		this.arquivo = "";
 		this.LeArquivo();
 		this.ProcessaArquivo();
+		
 
 	}
 
@@ -46,19 +47,18 @@ public class Arquivo {
 	}
 
 	public void ProcessaArquivo() {
+		this.musica = new Musica(); 
 		for (int i = 0; i < this.arquivo.length(); i++) {
 			if (i > 1) {
 				char c0 = this.arquivo.charAt(i - 1);
 				char c1 = this.arquivo.charAt(i);
 				this.musica.manipulaMusica(c1, c0);
-				System.out.println(c0);
-				System.out.println(c1);
+				
 			} else {
 				char c0 = ' ';
 				char c1 = this.arquivo.charAt(i);
-				System.out.println(c1);
-				System.out.println(c0);
-				//this.musica.manipulaMusica(c1, c0);
+				
+				this.musica.manipulaMusica(c1, c0);
 			}
 
 		}
