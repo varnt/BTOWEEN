@@ -16,19 +16,25 @@ public class Arquivo {
 
 	}
 
-	//public static void main(String[] args) {
-//		Arquivo arquivo = new Arquivo();
+	public static void main(String[] args) {
+		// public static void main(String[] args) {
+		Arquivo arquivo = new Arquivo();
 
-//	}
+	}
 
 	public void LeArquivo() {
 		// TODO Auto-generated method stub
+		Scanner diskScanner = null;
 		Scanner File = null;
 		try {
+			diskScanner = new Scanner(new java.io.File("C:\\testanto.txt"));
 			File = new Scanner(new java.io.File("C:\\testanto.txt"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		while (diskScanner.hasNextLine()) {
+			System.out.println(diskScanner.nextLine());
 		}
 		while (File.hasNextLine()) {
 			this.ConcatenaArquivo(File.nextLine().toString());
@@ -42,9 +48,9 @@ public class Arquivo {
 
 	public void ProcessaArquivo() {
 		for (int i = 0; i < this.arquivo.length(); i++) {
-			char c0 = this.arquivo.charAt(i-1);
+			char c0 = this.arquivo.charAt(i - 1);
 			char c1 = this.arquivo.charAt(i);
-			this.musica.manipulaMusica(c1,c0);
+			this.musica.manipulaMusica(c1, c0);
 
 		}
 	}
