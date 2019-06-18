@@ -21,7 +21,8 @@ public class Main {
 	caractereAnterior = entrada;
 	
 	}
-		
+	
+	System.out.println("Elementos na lista: ");
 	for(MusicFrame model : musica.getListaFrames()) {
 		System.out.println(model.toString());
 	}
