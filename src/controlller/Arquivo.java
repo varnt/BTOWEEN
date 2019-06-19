@@ -12,9 +12,8 @@ public class Arquivo {
 	public Arquivo() {
 		// TODO Auto-generated constructor stub
 		this.arquivo = "";
-		this.LeArquivo();
+		this.LeArquivo(this.caminhoArquivo());
 		this.ProcessaArquivo();
-		
 
 	}
 
@@ -24,13 +23,21 @@ public class Arquivo {
 
 	}
 
-	public void LeArquivo() {
-		// TODO Auto-generated method stub
+	public String caminhoArquivo() {
+		System.out.println("Digite o caminho do arquivo: ");
+		Scanner scan = new Scanner(System.in);
+
+		String caminhoArquivo = scan.nextLine();
+		scan.close();
+		return caminhoArquivo;
+	}
+
+	public void LeArquivo(String caminhoArquivo) {
 
 		Scanner File = null;
 		try {
 
-			File = new Scanner(new java.io.File("C:\\testanto.txt"));
+			File = new Scanner(new java.io.File(caminhoArquivo));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,17 +54,17 @@ public class Arquivo {
 	}
 
 	public void ProcessaArquivo() {
-		this.musica = new Musica(); 
+		this.musica = new Musica();
 		for (int i = 0; i < this.arquivo.length(); i++) {
 			if (i > 1) {
 				char c0 = this.arquivo.charAt(i - 1);
 				char c1 = this.arquivo.charAt(i);
 				this.musica.manipulaMusica(c1, c0);
-				
+
 			} else {
 				char c0 = ' ';
 				char c1 = this.arquivo.charAt(i);
-				
+
 				this.musica.manipulaMusica(c1, c0);
 			}
 
