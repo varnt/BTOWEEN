@@ -25,8 +25,11 @@ public class Nota {
 
 	}
 	
-	public void tocaNota (String codigoNota, Player player) {     
-		player.play(codigoNota);
+	public void tocaNota (String codigoNota, Player player) {   
+		String nota;
+		nota = "I[Pan_flute] " + codigoNota;
+		System.out.println(nota);
+		player.play(nota);
 		return;
 	}
 
