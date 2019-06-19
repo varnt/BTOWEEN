@@ -14,11 +14,11 @@ public class Musica {
 	private static final double aumenta10porcento = 1.1;
 	private static final String SILENCIO = "0";
 	private static final double DOBRA_VOLUME = 2.0;
-	private static final String HARPSICHORD = "7";
+	private static final String HARPSICHORD = "I[Harpsichord]";
 	private static final String OITAVA_DEFAULT = "4";
-	private static final String TUBULAR_BELLS = "15";
-	private static final String PAN_FLUTE = "76";
-	private static final String CHURCH_ORGAN = "20";
+	private static final String TUBULAR_BELLS = "I[Tubular_bells]";
+	private static final String PAN_FLUTE = "I[Pan_flute]";
+	private static final String CHURCH_ORGAN = "I[Church_organ]";
 	private static final int ESPACO = 32;
 	private static final int MODIFICADOR_DEFAULT = 0;
 
@@ -87,6 +87,7 @@ public class Musica {
 		final MusicFrame novoFrame;
 		final Instrumento novoInstrumento = new Instrumento(codigoNovoInstrumento);
 		novoFrame = new MusicFrame(novoInstrumento, this.atualFrame);
+		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 		System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
@@ -115,6 +116,8 @@ public class Musica {
 	
 	public void executaFrameAtual() {
 		this.atualFrame.executaFrameMusic(this.player);
+		
+		
 	}
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
@@ -162,7 +165,7 @@ public class Musica {
 
 		}
 		
-		if (caractereEntrada == '!' || caractereEntrada == '@') {
+		if (caractereEntrada == '&' || caractereEntrada == '@') {
 			if (Integer.parseInt(this.atualFrame.getCodigoOitava()) > 1) {
 				this.mudaOitava(Integer.toString(Integer.parseInt(this.atualFrame.getCodigoOitava()) - 1),
 						this.atualFrame.getcodigoModificadorOitava() - 12);

@@ -25,12 +25,12 @@ public class Nota {
 
 	}
 	
-	public void tocaNota (String codigoNota, Player player) {   
+	/*public void tocaNota (String codigoNota, Player player) {   
 		String nota;
-		nota = "I[Pan_flute] " + codigoNota;
+		nota = instrumento + codigoNota;
 		System.out.println(nota);
 		player.play(nota);
 		return;
-	}
+	}*/
 
 }

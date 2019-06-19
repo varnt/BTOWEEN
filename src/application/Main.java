@@ -25,6 +25,7 @@ public class Main {
 	musica.manipulaMusica(entrada, caractereAnterior);
 	caractereAnterior = entrada;
 	musica.executaFrameAtual();	 //ignorar caso caractere nao seja nota
+	
 	}
 	
 	System.out.println("Elementos na lista: ");

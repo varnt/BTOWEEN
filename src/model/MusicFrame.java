@@ -81,9 +81,12 @@ public class MusicFrame {
 	}
 	
 	public void executaFrameMusic(Player player) {
-
-		this.Nota.tocaNota(Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+this.Oitava.getcodigoModificadordeOitava())) , player);
-	
+		
+		String nota = this.getCodigotInstrumento() + " " + (Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+this.Oitava.getcodigoModificadordeOitava())));
+			
+		player.play(nota);
+		return;
+		
 	}
 
 	public String getCodigoOitava() {
@@ -138,6 +141,16 @@ public class MusicFrame {
 		this.Volume = volume;
 		return;
 	}
+	
+	/*public void tocaNota (String codigoNota, Player player) {   
+		
+		String nota;
+		nota = this.getCodigotInstrumento() + " " + codigoNota;
+		System.out.println(nota);
+		
+		player.play(nota);
+		return;
+	}*/
 
 
 	public String toString() {
