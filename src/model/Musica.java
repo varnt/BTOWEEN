@@ -80,6 +80,7 @@ public class Musica {
 		this.atualFrame = novoFrame;
 
 		System.out.println(novoFrame.getOitava() + "adicionada\n");
+		return;
 	}
 
 	public void mudaInstrumento(String codigoNovoInstrumento) {
@@ -150,11 +151,28 @@ public class Musica {
 			if (Integer.parseInt(this.atualFrame.getCodigoOitava()) < 8) {
 				this.mudaOitava(Integer.toString(Integer.parseInt(this.atualFrame.getCodigoOitava()) + 1),
 						this.atualFrame.getcodigoModificadorOitava() + 12);
+				return;
 
 			}
 
 			else {
 				this.mudaOitava(OITAVA_DEFAULT, MODIFICADOR_DEFAULT);
+				return;
+			}
+
+		}
+		
+		if (caractereEntrada == '!' || caractereEntrada == '@') {
+			if (Integer.parseInt(this.atualFrame.getCodigoOitava()) > 1) {
+				this.mudaOitava(Integer.toString(Integer.parseInt(this.atualFrame.getCodigoOitava()) - 1),
+						this.atualFrame.getcodigoModificadorOitava() - 12);
+				return;
+
+			}
+
+			else {
+				this.mudaOitava(OITAVA_DEFAULT, MODIFICADOR_DEFAULT);
+				return;
 			}
 
 		}

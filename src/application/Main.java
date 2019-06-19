@@ -14,19 +14,17 @@ public class Main {
 				
 		//Arquivo arquivo = new Arquivo();
 		Musica musica = new Musica();
+		//Arquivo arquivo = new Arquivo();
 		
-	Scanner ler = new Scanner(System.in);
-			
+		
+	Scanner ler = new Scanner(System.in);		
 	System.out.println("Digite o comando: ");
 	char caractereAnterior = 'a';
-
-	for(int i =0 ; i<4; i++) {
-	
+	for(int i =0 ; i<10; i++) {
 	char entrada = ler.nextLine().charAt(0);
-	
 	musica.manipulaMusica(entrada, caractereAnterior);
 	caractereAnterior = entrada;
-	musica.executaFrameAtual();	
+	musica.executaFrameAtual();	 //ignorar caso caractere nao seja nota
 	}
 	
 	System.out.println("Elementos na lista: ");

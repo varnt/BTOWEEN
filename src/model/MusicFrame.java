@@ -9,7 +9,7 @@ public class MusicFrame {
 	private Instrumento Instrumento;
 	private BPM BPM;
 	private Volume Volume;
-	private static final String OITAVA_DEFAULT = "4", NOTA_DEFAULT = "C", INSTR_DEFAULT = "PIANO", BPM_DEFAULT = "120", VOLUME_DEFAULT = "10";
+	private static final String OITAVA_DEFAULT = "4", NOTA_DEFAULT = "60", INSTR_DEFAULT = "PIANO", BPM_DEFAULT = "120", VOLUME_DEFAULT = "10";
 
 
 

@@ -3,17 +3,28 @@ package controlller;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import org.jfugue.player.Player;
+
+import model.MusicFrame;
 import model.Musica;
 
 public class Arquivo {
 	String arquivo;
 	Musica musica;
+	Player player;
 
 	public Arquivo() {
 		// TODO Auto-generated constructor stub
 		this.arquivo = "";
 		this.LeArquivo(this.caminhoArquivo());
 		this.ProcessaArquivo();
+		this.player = new Player();
+		
+		for(MusicFrame model : musica.getListaFrames()) {
+			System.out.println(model.toString());
+				model.executaFrameMusic(this.player);
+		}
 
 	}
 
@@ -66,6 +77,7 @@ public class Arquivo {
 				char c1 = this.arquivo.charAt(i);
 
 				this.musica.manipulaMusica(c1, c0);
+				//musica.executaFrameAtual();
 			}
 
 		}
