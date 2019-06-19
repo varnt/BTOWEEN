@@ -25,12 +25,5 @@ public class Nota {
 
 	}
 	
-	/*public void tocaNota (String codigoNota, Player player) {   
-		String nota;
-		nota = instrumento + codigoNota;
-		System.out.println(nota);
-		player.play(nota);
-		return;
-	}*/
 
 }

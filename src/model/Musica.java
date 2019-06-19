@@ -13,7 +13,7 @@ public class Musica {
 	private static final String A = "69", B = "71", C = "60", D = "62", E = "64", F = "65", G = "67";
 	private static final double aumenta10porcento = 1.1;
 	private static final String SILENCIO = "0";
-	private static final double DOBRA_VOLUME = 2.0;
+	private static final int DOBRA_VOLUME = 2;
 	private static final String HARPSICHORD = "I[Harpsichord]";
 	private static final String OITAVA_DEFAULT = "4";
 	private static final String TUBULAR_BELLS = "I[Tubular_bells]";
@@ -21,6 +21,7 @@ public class Musica {
 	private static final String CHURCH_ORGAN = "I[Church_organ]";
 	private static final int ESPACO = 32;
 	private static final int MODIFICADOR_DEFAULT = 0;
+	private static final String VOLUME_MAX = "127";
 
 	public ArrayList<MusicFrame> getListaFrames() {
 		return this.listaFrames;
@@ -104,9 +105,16 @@ public class Musica {
 	}
 
 	public void mudaVolume(String volume) {
-
+		
 		final MusicFrame novoFrame;
-		final Volume novoVolume = new Volume(volume);
+		final Volume novoVolume;
+		
+		if (Integer.parseInt(volume) > 127) {
+			novoVolume = new Volume(VOLUME_MAX);
+		}
+		else
+			novoVolume = new Volume(volume);
+
 		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
@@ -132,7 +140,7 @@ public class Musica {
 		}
 
 		if (this.ehVogalNaoNota(caractereEntrada)) {
-			this.mudaVolume(Double.toString(Integer.parseInt(this.atualFrame.getCodigoVolume()) * aumenta10porcento));
+			this.mudaVolume(Integer.toString((int) Math.round(Double.parseDouble(this.atualFrame.getCodigoVolume()) * aumenta10porcento)));
 			return;
 		}
 
@@ -210,7 +218,7 @@ public class Musica {
 			break;
 
 		case ESPACO:
-			this.mudaVolume(Double.toString(Double.parseDouble(this.atualFrame.getCodigoVolume()) * DOBRA_VOLUME));
+			this.mudaVolume(Integer.toString(Integer.parseInt(this.atualFrame.getCodigoVolume()) * DOBRA_VOLUME));
 			// this.dobraVolume();
 			break;
 
