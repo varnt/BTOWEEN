@@ -1,18 +1,21 @@
 package model;
+import org.jfugue.*;
+import org.jfugue.pattern.PatternProducer;
+import org.jfugue.player.Player; 
 
 public class Nota {
 
-	private int codigoNota;
+	private String codigoNota;
 
-	public Nota(int codigoNota) {
+	public Nota(String codigoNota) {
 		this.codigoNota = codigoNota;
 	}
 
-	public int getCodigoNota() {
+	public String getCodigoNota() {
 		return codigoNota;
 	}
 
-	public void setCodigoNota(int codigoNota) {
+	public void setCodigoNota(String codigoNota) {
 		this.codigoNota = codigoNota;
 		return;
 	}
@@ -20,6 +23,11 @@ public class Nota {
 	public String toString() {
 		return "Nota codigoNota=" + this.codigoNota;
 
+	}
+	
+	public void tocaNota (String codigoNota, Player player) {     
+		player.play(codigoNota);
+		return;
 	}
 
 }

@@ -2,22 +2,32 @@ package model;
 
 public class Oitava {
 
-	private int codigoOitava;
+	private String codigoOitava;
+	private int codigoModificadordeOitava;
 
-	public Oitava(int codigoOitava) {
-		this.codigoOitava = codigoOitava;
+	public Oitava(String oitavaDefault) {
+		this.codigoOitava = oitavaDefault;
+		this.codigoModificadordeOitava = 0;
 	}
 
-	public int getCodigoOitava() {
+	public String getCodigoOitava() {
 		return codigoOitava;
 	}
 	
-	public void aumentaOitava(int novaOitava) {
+	public int getcodigoModificadordeOitava() {
+		return this.codigoModificadordeOitava;
+	}
+	
+	public void setcodigoModificadordeOitava(int codigoModificador) {
+		this.codigoModificadordeOitava = codigoModificador;
+	}
+	
+	public void aumentaOitava(String novaOitava) {
 		this.codigoOitava = novaOitava;
 		System.out.println("aumentou oitava em: " + this.codigoOitava);
 	}
 	
-	public void diminuiOitava(int novaOitava) {
+	public void diminuiOitava(String novaOitava) {
 		this.codigoOitava = novaOitava;
 		System.out.println("diminuiu oitava em: " + this.codigoOitava);
 	}

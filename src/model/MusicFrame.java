@@ -1,5 +1,7 @@
 package model;
 
+import org.jfugue.player.Player;
+
 public class MusicFrame {
 
 	private Oitava Oitava;
@@ -7,19 +9,20 @@ public class MusicFrame {
 	private Instrumento Instrumento;
 	private BPM BPM;
 	private Volume Volume;
+	private static final String OITAVA_DEFAULT = "4", NOTA_DEFAULT = "C", INSTR_DEFAULT = "PIANO", BPM_DEFAULT = "120", VOLUME_DEFAULT = "10";
 
 
 
 	public MusicFrame() {
 		// valores default
-		this.Oitava = new Oitava(1);
-		this.Nota = new Nota(1);
-		this.Instrumento = new Instrumento(1);
-		this.BPM = new BPM(1);
-		this.Volume = new Volume(1);
+		this.Oitava = new Oitava(OITAVA_DEFAULT);
+		this.Nota = new Nota(NOTA_DEFAULT);
+		this.Instrumento = new Instrumento(INSTR_DEFAULT);
+		this.BPM = new BPM(BPM_DEFAULT);
+		this.Volume = new Volume(VOLUME_DEFAULT);
 	}
 
-	public MusicFrame(int codigoOitava, int codigoNota, int codigoInstrumento, int codigoBPM, int codigoVolume) {
+	public MusicFrame(String codigoOitava, String codigoNota, String codigoInstrumento, String codigoBPM, String codigoVolume) {
 
 		this.Oitava = new Oitava(codigoOitava);
 		this.Nota = new Nota(codigoNota);
@@ -76,8 +79,14 @@ public class MusicFrame {
 		this.Oitava = atualFrame.Oitava;
 		
 	}
+	
+	public void executaFrameMusic(Player player) {
 
-	public int getCodigoOitava() {
+		this.Nota.tocaNota(Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+this.Oitava.getcodigoModificadordeOitava())) , player);
+	
+	}
+
+	public String getCodigoOitava() {
 		return this.Oitava.getCodigoOitava();
 	}
 	
@@ -85,11 +94,15 @@ public class MusicFrame {
 		return this.Oitava;
 	}
 
-	public Nota getNota() {
+	public Nota getCodigoNota() {
 		return Nota;
 	}
+	
+	public int getcodigoModificadorOitava() {
+		return this.Oitava.getcodigoModificadordeOitava();
+	}
 
-	public int getCodigotInstrumento() {
+	public String getCodigotInstrumento() {
 		return this.Instrumento.getCodigoInstrumento();
 	}
 
@@ -97,7 +110,7 @@ public class MusicFrame {
 		return BPM;
 	}
 	
-	public double getCodigoVolume() {
+	public String getCodigoVolume() {
 		return this.Volume.getCodigoVolume();
 	}
 

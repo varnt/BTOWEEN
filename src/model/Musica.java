@@ -2,19 +2,25 @@ package model;
 
 import java.util.ArrayList;
 
+import org.jfugue.player.Player;
+
 public class Musica {
 
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
-	
-	private static final int A = 69, B = 71, C = 60, D = 62, E = 64, F = 65, G = 67, SILENCIO = 0, ESPACO = 32;
+	private Player player;
+
+	private static final String A = "69", B = "71", C = "60", D = "62", E = "64", F = "65", G = "67";
 	private static final double aumenta10porcento = 1.1;
+	private static final String SILENCIO = "0";
 	private static final double DOBRA_VOLUME = 2.0;
-	private static final int HARPSICHORD = 7;
-	private static final int OITAVA_DEFAULT = 4;
-	private static final int TUBULAR_BELLS = 15;
-	private static final int PAN_FLUTE = 76;
-	private static final int CHURCH_ORGAN = 20;
+	private static final String HARPSICHORD = "7";
+	private static final String OITAVA_DEFAULT = "4";
+	private static final String TUBULAR_BELLS = "15";
+	private static final String PAN_FLUTE = "76";
+	private static final String CHURCH_ORGAN = "20";
+	private static final int ESPACO = 32;
+	private static final int MODIFICADOR_DEFAULT = 0;
 
 	public ArrayList<MusicFrame> getListaFrames() {
 		return this.listaFrames;
@@ -23,6 +29,7 @@ public class Musica {
 	public Musica() {
 		this.atualFrame = new MusicFrame();
 		this.listaFrames = new ArrayList<MusicFrame>();
+		this.player = new Player();
 	}
 
 	public Musica(MusicFrame atualFrame) {
@@ -48,25 +55,34 @@ public class Musica {
 		return this.listaFrames.size();
 	}
 
-	public void mudaNota(int codigoNovaNota) {
+	public void mudaNota(String codigoNovaNota) {
 		final MusicFrame novoFrame;
 		final Nota novaNota = new Nota(codigoNovaNota);
 		novoFrame = new MusicFrame(novaNota, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getNota() + " adicionada\n");
+
+		Nota notaAuxiliar = atualFrame.getCodigoNota();
+
+		System.out.println(notaAuxiliar.getCodigoNota() + " adicionada\n");
+
+		//novaNota.tocaNota(novaNota.getCodigoNota(), this.player);
+		return;
+
 	}
 
-	public void mudaOitava(int codigoNovaOitava) {
+	public void mudaOitava(String oitava, int modificadorOitava) {
 		final MusicFrame novoFrame;
-		final Oitava novaOitava = new Oitava(codigoNovaOitava);
+		final Oitava novaOitava = new Oitava(oitava);
+		novaOitava.setcodigoModificadordeOitava(modificadorOitava);
 		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
+
 		System.out.println(novoFrame.getOitava() + "adicionada\n");
 	}
 
-	public void mudaInstrumento(int codigoNovoInstrumento) {
+	public void mudaInstrumento(String codigoNovoInstrumento) {
 		final MusicFrame novoFrame;
 		final Instrumento novoInstrumento = new Instrumento(codigoNovoInstrumento);
 		novoFrame = new MusicFrame(novoInstrumento, this.atualFrame);
@@ -75,7 +91,7 @@ public class Musica {
 		System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
 	}
 
-	public void mudaBPM(int codigoNovoBPM) {
+	public void mudaBPM(String codigoNovoBPM) {
 		final MusicFrame novoFrame;
 		final BPM novoBPM = new BPM(codigoNovoBPM);
 		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
@@ -85,25 +101,20 @@ public class Musica {
 
 	}
 
-
-	public void mudaVolume(double h) {
+	public void mudaVolume(String volume) {
 
 		final MusicFrame novoFrame;
-		final Volume novoVolume = new Volume(h);
+		final Volume novoVolume = new Volume(volume);
 		novoFrame = new MusicFrame(novoVolume, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 
 		System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
 	}
-
 	
-
-	// IMPLEMENTARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	// private void dobraVolume() {
-	//
-	// }
-
+	public void executaFrameAtual() {
+		this.atualFrame.executaFrameMusic(this.player);
+	}
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
@@ -117,16 +128,9 @@ public class Musica {
 		}
 
 		if (this.ehVogalNaoNota(caractereEntrada)) {
-			this.mudaVolume(this.atualFrame.getCodigoVolume() * aumenta10porcento);
+			this.mudaVolume(Double.toString(Integer.parseInt(this.atualFrame.getCodigoVolume()) * aumenta10porcento));
 			return;
 		}
-
-
-		// if(this.ehVogalNaoNota(caractereEntrada)){
-		// this.(atual);
-
-		// }
-
 
 		if (this.ehConsoanteNaoNota(caractereEntrada)) {
 			if (this.ehNota(caractereAnterior))
@@ -138,20 +142,23 @@ public class Musica {
 		}
 
 		if (this.ehNumero(caractereEntrada)) {
-			this.mudaInstrumento(this.atualFrame.getCodigotInstrumento() + Character.getNumericValue(caractereEntrada));
+			this.mudaInstrumento(Integer.toString(Integer.parseInt(this.atualFrame.getCodigotInstrumento())
+					+ Character.getNumericValue(caractereEntrada)));
 		}
 
 		if (caractereEntrada == '?' || caractereEntrada == '.') {
-			if (this.atualFrame.getCodigoOitava() < 8) {
-				this.mudaOitava(this.atualFrame.getCodigoOitava() + 1);
+			if (Integer.parseInt(this.atualFrame.getCodigoOitava()) < 8) {
+				this.mudaOitava(Integer.toString(Integer.parseInt(this.atualFrame.getCodigoOitava()) + 1),
+						this.atualFrame.getcodigoModificadorOitava() + 12);
+
 			}
 
 			else {
-				this.mudaOitava(OITAVA_DEFAULT);
+				this.mudaOitava(OITAVA_DEFAULT, MODIFICADOR_DEFAULT);
 			}
 
 		}
-		
+
 		switch (caractereEntrada) {
 		case 'A':
 			this.mudaNota(A);
@@ -182,8 +189,8 @@ public class Musica {
 			break;
 
 		case ESPACO:
-			this.mudaVolume(this.atualFrame.getCodigoVolume() * DOBRA_VOLUME);
-			//this.dobraVolume();
+			this.mudaVolume(Double.toString(Double.parseDouble(this.atualFrame.getCodigoVolume()) * DOBRA_VOLUME));
+			// this.dobraVolume();
 			break;
 
 		case '!':
@@ -243,8 +250,8 @@ public class Musica {
 	}
 
 	private boolean ehNota(char caractere) {
-		if (caractere == A || caractere == B || caractere == C || caractere == D || caractere == E || caractere == F
-				|| caractere == G)
+		if (caractere == 'A' || caractere == 'B' || caractere == 'C' || caractere == 'D' || caractere == 'E'
+				|| caractere == 'F' || caractere == 'G')
 			return true;
 
 		else

@@ -2,13 +2,13 @@ package model;
 
 public class BPM {
 
-	private int codigoBPM;
+	private String codigoBPM;
 
-	public BPM(int codigoBPM) {
-		this.codigoBPM = codigoBPM;
+	public BPM(String bpmDefault) {
+		this.codigoBPM = bpmDefault;
 	}
 
-	public int getCodigoBPM() {
+	public String getCodigoBPM() {
 		return codigoBPM;
 	}
 

@@ -2,13 +2,13 @@ package model;
 
 public class Instrumento {
 
-	private int codigoInstrumento;
+	private String codigoInstrumento;
 
-	public Instrumento(int codigoInstrumento) {
-		this.codigoInstrumento = codigoInstrumento;
+	public Instrumento(String codigoNovoInstrumento) {
+		this.codigoInstrumento = codigoNovoInstrumento;
 	}
 
-	public int getCodigoInstrumento() {
+	public String getCodigoInstrumento() {
 		return codigoInstrumento;
 	}
 

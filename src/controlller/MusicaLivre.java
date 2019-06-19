@@ -31,7 +31,7 @@ public class MusicaLivre {
 		int i;
 		while ((i = br.read()) != -1) {
 			System.out.print((char) i);
-			manipulaMusica()
+	//		manipulaMusica()
 		}
 		br.close();
 		fr.close();

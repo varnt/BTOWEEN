@@ -2,14 +2,14 @@ package model;
 
 public class Volume {
 	
-	private double codigoVolume;
+	private String codigoVolume;
 	
 	
-	public Volume(double codigoVolume) {
-		this.codigoVolume = codigoVolume;
+	public Volume(String volumeDefault) {
+		this.codigoVolume = volumeDefault;
 	}
 
-	public double getCodigoVolume() {
+	public String getCodigoVolume() {
 		return this.codigoVolume;
 	}
 	
