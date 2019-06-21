@@ -33,7 +33,7 @@ public class Oitava {
 	}
 
 	public String toString() {
-		return "Oitava codigoOitava=" + this.codigoOitava;
+		return "Oitava= " + this.codigoOitava;
 	}
 	
 	

@@ -18,7 +18,7 @@ public class Volume {
 	}
 	
 	public String toString() {
-		return "Volume codigoVolume=" + this.codigoVolume;
+		return "Volume = " + this.codigoVolume;
 	}
 	
 	

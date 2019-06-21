@@ -33,11 +33,13 @@ public class Musica {
 		this.player = new Player();
 	}
 
-	public Musica(MusicFrame atualFrame) {
+	//não necessário, remover ao fim.
+	/*public Musica(MusicFrame atualFrame) {
 
-		this.atualFrame = atualFrame;
 		this.listaFrames.add(atualFrame);
-	}
+		this.atualFrame = atualFrame;
+
+	}*/
 
 	public void adicionaNovoFrame(MusicFrame novoFrame) {
 
@@ -46,11 +48,6 @@ public class Musica {
 
 	}
 
-	public MusicFrame frameAtual() {
-
-		return this.atualFrame;
-
-	}
 
 	public int tamanhoLista() {
 		return this.listaFrames.size();
@@ -58,16 +55,16 @@ public class Musica {
 
 	public void mudaNota(String codigoNovaNota) {
 		final MusicFrame novoFrame;
+		
 		final Nota novaNota = new Nota(codigoNovaNota);
 		novoFrame = new MusicFrame(novaNota, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 
-		Nota notaAuxiliar = atualFrame.getCodigoNota();
+		//Nota notaAuxiliar = atualFrame.getCodigoNota();
 
-		System.out.println(notaAuxiliar.getCodigoNota() + " adicionada\n");
+		//System.out.println(notaAuxiliar.getCodigoNota() + " adicionada\n");
 
-		//novaNota.tocaNota(novaNota.getCodigoNota(), this.player);
 		return;
 
 	}
@@ -75,12 +72,16 @@ public class Musica {
 	public void mudaOitava(String oitava, int modificadorOitava) {
 		final MusicFrame novoFrame;
 		final Oitava novaOitava = new Oitava(oitava);
+		
 		novaOitava.setcodigoModificadordeOitava(modificadorOitava);
+		
 		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
+		
 		this.adicionaNovoFrame(novoFrame);
+		
 		this.atualFrame = novoFrame;
 
-		System.out.println(novoFrame.getOitava() + "adicionada\n");
+		//System.out.println(novoFrame.getOitava() + "adicionada\n");
 		return;
 	}
 
@@ -91,7 +92,7 @@ public class Musica {
 		
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
+		//System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
 	}
 
 	public void mudaBPM(String codigoNovoBPM) {
@@ -100,8 +101,8 @@ public class Musica {
 		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getBPM() + "adicionado\n");
-
+		//System.out.println(novoFrame.getBPM() + "adicionado\n");
+		return;
 	}
 
 	public void mudaVolume(String volume) {
@@ -109,7 +110,7 @@ public class Musica {
 		final MusicFrame novoFrame;
 		final Volume novoVolume;
 		
-		if (Integer.parseInt(volume) > 127) {
+		if (Integer.parseInt(volume) > Integer.parseInt(VOLUME_MAX)) {
 			novoVolume = new Volume(VOLUME_MAX);
 		}
 		else
@@ -119,13 +120,12 @@ public class Musica {
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 
-		System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
+		//System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
+		return;
 	}
 	
 	public void executaFrameAtual() {
-		this.atualFrame.executaFrameMusic(this.player);
-		
-		
+		this.atualFrame.executaFrameMusic(this.player);		
 	}
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
@@ -237,7 +237,7 @@ public class Musica {
 		case ',':
 			this.mudaInstrumento(CHURCH_ORGAN);
 			break;
-
+			
 		default:
 			if (this.ehNota(caractereAnterior))
 				this.repeteFrame();
@@ -278,7 +278,7 @@ public class Musica {
 			return false;
 	}
 
-	private boolean ehNota(char caractere) {
+	public boolean ehNota(char caractere) {
 		if (caractere == 'A' || caractere == 'B' || caractere == 'C' || caractere == 'D' || caractere == 'E'
 				|| caractere == 'F' || caractere == 'G')
 			return true;
@@ -294,6 +294,12 @@ public class Musica {
 
 		else
 			return false;
+	}
+	
+	public MusicFrame getAtualFrame() {
+	
+		return this.atualFrame;
+	
 	}
 
 	private void repeteFrame() {

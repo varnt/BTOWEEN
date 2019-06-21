@@ -9,12 +9,15 @@ public class MusicFrame {
 	private Instrumento Instrumento;
 	private BPM BPM;
 	private Volume Volume;
-	private static final String OITAVA_DEFAULT = "4", NOTA_DEFAULT = "60", INSTR_DEFAULT = "PIANO", BPM_DEFAULT = "120", VOLUME_DEFAULT = "50";
-
-
+	
+	private static final String OITAVA_DEFAULT = "4"; 
+	private static final String NOTA_DEFAULT = "60";
+	private static final String INSTR_DEFAULT = "PIANO";
+	private static final String BPM_DEFAULT = "120";
+	private static final String VOLUME_DEFAULT = "50";
 
 	public MusicFrame() {
-		// valores default
+
 		this.Oitava = new Oitava(OITAVA_DEFAULT);
 		this.Nota = new Nota(NOTA_DEFAULT);
 		this.Instrumento = new Instrumento(INSTR_DEFAULT);
@@ -32,7 +35,7 @@ public class MusicFrame {
 
 	}
 
-	// novo frame para quando trocar apenas nota
+	// novo  para quando trocar apenas nota
 	public MusicFrame(model.Nota NovaNota, MusicFrame atualFrame) {
 		this.Nota = NovaNota;
 		this.BPM = atualFrame.BPM;
@@ -82,16 +85,16 @@ public class MusicFrame {
 	
 	public void executaFrameMusic(Player player) {
 		
-				
-		String  nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+this.Oitava.getcodigoModificadordeOitava()));
-		//String volume = ("X[" + this.Volume.getCodigoVolume()+ "]");
+		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
+		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
 		String volume = (":CON(7, " + this.Volume.getCodigoVolume() + ") ");
-
-		String som = (volume + this.getCodigotInstrumento() + " " + nota);
+		String instrumento = this.getCodigotInstrumento();
 		
-		System.out.println("nota: " + nota);
-		System.out.println("volume: " + volume);
-		System.out.println("som: " + som);
+		String som = (volume + instrumento + " " + nota);
+		
+		//System.out.println("nota: " + nota);
+		//System.out.println("volume: " + volume);
+		//System.out.println("som: " + som);
 		
 		player.play(som);
 		return;

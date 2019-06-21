@@ -1,7 +1,7 @@
 package model;
-import org.jfugue.*;
-import org.jfugue.pattern.PatternProducer;
-import org.jfugue.player.Player; 
+//import org.jfugue.*;
+//import org.jfugue.pattern.PatternProducer;
+//import org.jfugue.player.Player; 
 
 public class Nota {
 
@@ -21,9 +21,8 @@ public class Nota {
 	}
 
 	public String toString() {
-		return "Nota codigoNota=" + this.codigoNota;
+		return "Nota = " + this.codigoNota;
 
 	}
 	
-
 }

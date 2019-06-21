@@ -1,11 +1,10 @@
 package application;
 import java.util.Scanner;
 
-import org.jfugue.player.Player;
+//import org.jfugue.player.Player;
 
 import model.MusicFrame;
 import model.Musica;
-import model.Nota;
 import controlller.Arquivo;
 
 public class Main {
@@ -23,8 +22,13 @@ public class Main {
 	for(int i =0 ; i<10; i++) {
 	char entrada = ler.nextLine().charAt(0);
 	musica.manipulaMusica(entrada, caractereAnterior);
+	
 	caractereAnterior = entrada;
-	musica.executaFrameAtual();	 //ignorar caso caractere nao seja nota
+	
+	if(musica.ehNota(entrada))
+		musica.executaFrameAtual();	 //ignorar caso caractere nao seja nota
+	
+	System.out.println(musica.getAtualFrame());
 	
 	}
 	
