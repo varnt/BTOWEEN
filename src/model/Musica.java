@@ -140,7 +140,8 @@ public class Musica {
 		}
 
 		if (this.ehVogalNaoNota(caractereEntrada)) {
-			this.mudaVolume(Integer.toString((int) Math.round(Double.parseDouble(this.atualFrame.getCodigoVolume()) * aumenta10porcento)));
+			int volume = (int) Math.round(Double.parseDouble(this.atualFrame.getCodigoVolume()));
+			this.mudaVolume(Integer.toString((int) (volume * aumenta10porcento)));
 			return;
 		}
 

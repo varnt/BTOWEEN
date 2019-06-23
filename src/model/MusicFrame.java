@@ -92,10 +92,6 @@ public class MusicFrame {
 		
 		String som = (volume + instrumento + " " + nota);
 		
-		//System.out.println("nota: " + nota);
-		//System.out.println("volume: " + volume);
-		//System.out.println("som: " + som);
-		
 		player.play(som);
 		return;
 		
