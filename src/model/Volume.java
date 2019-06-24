@@ -13,9 +13,6 @@ public class Volume {
 		return this.codigoVolume;
 	}
 	
-	public void mudaVolume(int codigoVolume) {
-		
-	}
 	
 	public String toString() {
 		return "Volume = " + this.codigoVolume;
