@@ -16,7 +16,7 @@ public class Main {
 		Musica musica = new Musica();
 		// Arquivo arquivo = new Arquivo();
 
-		Scanner ler = new Scanner(System.in);
+/*		Scanner ler = new Scanner(System.in);
 		System.out.println("Digite o comando: ");
 		char caractereAnterior = 'a';
 		for (int i = 0; i < 10; i++) {
@@ -36,8 +36,10 @@ public class Main {
 		for (MusicFrame model : musica.getListaFrames()) {
 			System.out.println(model.toString());
 		}
-
+		
 		ler.close();
+*/
+		
 	}
 
 }
