@@ -87,14 +87,35 @@ public class MusicFrame {
 		
 		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
 		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
-		String volume = (":CON(7, " + this.Volume.getCodigoVolume() + ") ");
+		String volumeAtual = this.GerenciaVolume(player);
 		String instrumento = this.getCodigotInstrumento();
 		
-		String som = (volume + instrumento + " " + nota);
+		String som = (volumeAtual + instrumento + " " + nota);
 		
 		player.play(som);
 		return;
 	}
+	
+	
+	public String GerenciaVolume(Player player){
+		
+	int volumeUI=0;
+	/*
+	 * se VolumeUI é up entao + 10
+	 * 
+	 * se VolumeUI é Down entao -10
+	 * 
+	 * se VolumeUI é Stable entao 0
+	 * 
+	 * 
+	 * */
+	int volumeAtual = Integer.parseInt(this.Volume.getCodigoVolume())+ volumeUI;
+		
+	String volume =	(":CON(7, " + Integer.toString(volumeAtual) +") ");
+	
+	return volume;
+	}
+	
 	
 	public String retornaSomParaSalvar() {
 		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();

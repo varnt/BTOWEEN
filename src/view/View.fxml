@@ -21,15 +21,18 @@
                </font>
             </Text>
             <TextArea layoutX="50.0" layoutY="104.0" prefHeight="200.0" prefWidth="352.0" />
-            <Text layoutX="442.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text layoutX="442.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text layoutX="442.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text layoutX="442.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Button fx:id="btVolUP" layoutX="427.0" layoutY="130.0" mnemonicParsing="false" onAction="#onbtVolUPAction" text="+" />
-            <Button fx:id="btVolDOWN" layoutX="482.0" layoutY="130.0" mnemonicParsing="false" onAction="#onbtVolDOWNAction" text="-" />
-            <Button fx:id="playPause" layoutX="427.0" layoutY="163.0" mnemonicParsing="false" onAction="#onPLayPauseAction" text="Play/Pause" />
-            <Button fx:id="MusicaLivre" layoutX="423.0" layoutY="204.0" mnemonicParsing="false" onAction="#onMusicaLivreAction" text="Musica Livre" />
-            <Button fx:id="Salvar" layoutX="423.0" layoutY="245.0" mnemonicParsing="false" onAction="#onSalvarAction" text="Salvar" />
+            <Text layoutX="442.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOL: varCurrentVOL" />
+            <Text layoutX="442.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BPM: varcurrentBPM" />
+            <Text layoutX="442.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nota: VarcurrentNota" />
+            <Text layoutX="441.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instrumento: varCurrentInst" />
+            <Button fx:id="btVolUP" layoutX="435.0" layoutY="149.0" mnemonicParsing="false" onAction="#onbtVolUPAction" text="+" />
+            <Button fx:id="btVolDOWN" layoutX="531.0" layoutY="149.0" mnemonicParsing="false" onAction="#onbtVolDOWNAction" text="-" />
+            <Button fx:id="playPause" layoutX="435.0" layoutY="182.0" mnemonicParsing="false" onAction="#onPLayPauseAction" text="Play/Pause" />
+            <Button fx:id="MusicaLivre" layoutX="434.0" layoutY="215.0" mnemonicParsing="false" onAction="#onMusicaLivreAction" text="Musica Livre" />
+            <Button fx:id="Salvar" layoutX="435.0" layoutY="248.0" mnemonicParsing="false" onAction="#onSalvarAction" text="Salvar MIDI" />
+            <Button fx:id="Salvar1" layoutX="436.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSalvarAction" text="Abrir arquivo .txt" />
+            <Text layoutX="476.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oitava: varCurrentOitava" />
+            <Text layoutX="474.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" />
       </children>
     </AnchorPane>
     <MenuBar VBox.vgrow="NEVER">
@@ -71,6 +74,5 @@
         </Menu>
       </menus>
     </MenuBar>
-      <Button mnemonicParsing="false" text="Button" />
   </children>
 </VBox>
