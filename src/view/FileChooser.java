@@ -1,4 +1,7 @@
-/*package view;
+
+
+ package view;
+ 
 
 import java.io.File;
 
@@ -6,7 +9,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import javafx.stage.*;
 import javafx.stage.Stage;
 
 public class FileChooser extends Application {
@@ -15,22 +17,21 @@ public class FileChooser extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("JavaFX App");
+    public void start(Stage Stage) {
+        Stage.setTitle("JavaFX App");
 
         FileChooser fileChooser = new FileChooser();
 
         Button button = new Button("Select File");
         button.setOnAction(e -> {
-            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            File selectedFile = fileChooser.showOpenDialog(new Stage());
         });
 
         VBox vBox = new VBox(button);
         Scene scene = new Scene(vBox, 960, 600);
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Stage.setScene(scene);
+        Stage.show();
     }
 }
 
-*/
