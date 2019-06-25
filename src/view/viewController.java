@@ -2,6 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.Musica;
 
 public class viewController {
 
@@ -15,7 +16,36 @@ public class viewController {
 	private Button MusicaLivre;
 	@FXML
 	private Button Salvar;
-
+	
+	@FXML
+	public void onbtVolUPAction() {
+		System.out.println("Vol UP");
+		//mudavolume();
+	}
+	
+	@FXML
+	public void onbtVolDOWNAction() {
+		System.out.println("Vol DOWN");
+		//mudavolume();
+	}
+	
+	@FXML
+	public void onPLayPauseAction() {
+		System.out.println("PlayPause");
+		//mudavolume();
+	}
+	
+	@FXML
+	public void onMusicaLivreAction() {
+		System.out.println("MusicaLivre");
+		//mudavolume();
+	}
+	
+	@FXML
+	public void onSalvarAction() {
+		System.out.println("Salvar");
+		//mudavolume();
+	}
 
 	public viewController() {
 		// TODO Auto-generated constructor stub
