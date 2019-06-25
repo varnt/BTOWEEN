@@ -11,10 +11,10 @@ import model.Musica;
 
 public class Arquivo {
 	String arquivo;
-	Musica musica;
+	//Musica musica;
 	Player player;
 
-	public Arquivo() {
+	public Arquivo(Musica musica) {
 		// TODO Auto-generated constructor stub
 		this.arquivo = "";
 		String caminhoArquivo = this.caminhoArquivo(); // escreve caminho arquivo
