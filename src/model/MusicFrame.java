@@ -94,8 +94,19 @@ public class MusicFrame {
 		
 		player.play(som);
 		return;
-		
 	}
+	
+	public String retornaSomParaSalvar() {
+		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
+		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
+		String volume = (":CON(7, " + this.Volume.getCodigoVolume() + ") ");
+		String instrumento = this.getCodigotInstrumento();
+		
+		String som = (volume + instrumento + " " + nota);
+	
+		return som;
+	}
+	
 
 	public String getCodigoOitava() {
 		return this.Oitava.getCodigoOitava();
