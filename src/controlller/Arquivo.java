@@ -17,7 +17,8 @@ public class Arquivo {
 	public Arquivo() {
 		// TODO Auto-generated constructor stub
 		this.arquivo = "";
-		this.LeArquivo(this.caminhoArquivo());
+		String caminhoArquivo = this.caminhoArquivo();
+		this.LeArquivo(caminhoArquivo);
 		this.ProcessaArquivo();
 		this.player = new Player();
 		

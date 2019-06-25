@@ -11,7 +11,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//Arquivo arquivo = new Arquivo();
+		
+		Arquivo arquivo = new Arquivo();
 		Musica musica = new Musica();
 		// Arquivo arquivo = new Arquivo();
 
