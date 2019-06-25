@@ -21,6 +21,8 @@ public class viewController extends Application {
 
 	private String volumeAtual; //valor que tem no volume
 	private String volumeSolicitado;
+	private Musica musica;
+	private Arquivo arquivo;
 
 	
 	@Override
@@ -45,6 +47,8 @@ public class viewController extends Application {
 	private Button MusicaLivre;
 	@FXML
 	private Button Salvar;
+	@FXML
+	private Button AbrirArquivo;
 
 	@FXML
 	
@@ -84,43 +88,58 @@ public class viewController extends Application {
 	public void onSalvarAction() {
 		System.out.println("Salvar");
 		// mudavolume();
+		this.musica.salvaMIDI();
 	}
+	
+	@FXML
+	public void onAbrirArquivoAction() {
+		System.out.println("Salvar");
+		String caminhoArquivo = this.arquivo.caminhoArquivo();
+		this.arquivo.LeArquivo(caminhoArquivo);	
+		
+	}
+	
+	
+	
+
 
 	public viewController() {
 		// TODO Auto-generated constructor stub
-
+		 this.musica = new Musica();
+		 this.arquivo = new Arquivo(this.musica);
 	}
 
 	public static void main(String[] args) {
 
 		launch(args); //descomentar
 		// Arquivo arquivo = new Arquivo();
-		Musica musica = new Musica(this.getVolumeAtual());
-		Arquivo arquivo = new Arquivo(musica);
+	
+		/*
 
 		Scanner ler = new Scanner(System.in);
 		System.out.println("Digite o comando: ");
 		char caractereAnterior = 'a';
 		for (int i = 0; i < 5; i++) {
 			char entrada = ler.nextLine().charAt(0);
-			musica.manipulaMusica(entrada, caractereAnterior);
+			this.musica.manipulaMusica(entrada, caractereAnterior);
 
 			caractereAnterior = entrada;
 
-			if (musica.ehNota(entrada))
-				musica.executaFrameAtual(); // ignorar caso caractere nao seja nota
+			if (this.musica.ehNota(entrada))
+				this.musica.executaFrameAtual(); // ignorar caso caractere nao seja nota
 
-			System.out.println(musica.getAtualFrame());
+			System.out.println(this.musica.getAtualFrame());
 
 		}
 
 		System.out.println("Elementos na lista: ");
-		for (MusicFrame model : musica.getListaFrames()) {
+		for (MusicFrame model : this.musica.getListaFrames()) {
 			System.out.println(model.toString());
 		}
-		musica.salvaMIDI();
+		//this.musica.salvaMIDI();
 
 		ler.close();
+		*/
 
 	}
 

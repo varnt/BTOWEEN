@@ -30,7 +30,7 @@
             <Button fx:id="playPause" layoutX="435.0" layoutY="182.0" mnemonicParsing="false" onAction="#onPLayPauseAction" text="Play/Pause" />
             <Button fx:id="MusicaLivre" layoutX="434.0" layoutY="215.0" mnemonicParsing="false" onAction="#onMusicaLivreAction" text="Musica Livre" />
             <Button fx:id="Salvar" layoutX="435.0" layoutY="248.0" mnemonicParsing="false" onAction="#onSalvarAction" text="Salvar MIDI" />
-            <Button fx:id="Salvar1" layoutX="436.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSalvarAction" text="Abrir arquivo .txt" />
+            <Button fx:id="AbrirArquivo" layoutX="436.0" layoutY="279.0" mnemonicParsing="false" onAction="#onAbrirArquivoAction" text="Abrir arquivo .txt" />
             <Text layoutX="476.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oitava: varCurrentOitava" />
             <Text layoutX="474.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume" />
       </children>
