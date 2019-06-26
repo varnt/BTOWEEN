@@ -48,7 +48,7 @@ public class Musica {
 
 		try {
 			Pattern pattern = new Pattern(acumulaSons.toString());
-			MidiFileManager.savePatternToMidi(pattern, new File("Music.mid"));
+			MidiFileManager.savePatternToMidi(pattern, new File("BTOWEEN_Music.mid"));
 			System.out.println("salvou!");
 		}
 		catch (IOException ex) {

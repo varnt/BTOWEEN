@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
+import model.MusicFrame;
 import model.Musica;
 
 
@@ -73,7 +74,9 @@ public class viewController extends Application {
 	@FXML
 	public void onPLayPauseAction() {
 		System.out.println("PlayPause");
-		// mudavolume();
+		for (MusicFrame model : musica.getListaFrames()) {
+			musica.executaFrameAtual();
+		}
 	}
 
 	@FXML
