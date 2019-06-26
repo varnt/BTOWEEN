@@ -19,44 +19,48 @@ public class Arquivo {
 		this.arquivo = "";
 		// String caminhoArquivo = this.caminhoArquivo(); // escreve caminho arquivo
 		// this.LeArquivo(caminhoArquivo); // le caminho arquivo
-		this.ProcessaArquivo(musica); // coloca tudo num string
-		this.player = new Player();
+		// this.ProcessaArquivo(musica); // coloca tudo num string
+		// this.player = new Player();
 
-		for (MusicFrame model : musica.getListaFrames()) {
-			System.out.println(model.toString());
-			model.executaFrameMusic(this.player);
-		}
+		// for (MusicFrame model : musica.getListaFrames()) {
+		// System.out.println(model.toString());
+		// model.executaFrameMusic(this.player);
+		// }
 
 	}
 
-	public String caminhoArquivo() {
-		System.out.println("Digite o caminho do arquivo: ");
-		Scanner scan = new Scanner(System.in);
-
-		String caminhoArquivo = scan.nextLine();
-		scan.close();
-		return caminhoArquivo;
-	}
+	/*
+	 * public String caminhoArquivo() {
+	 * System.out.println("Digite o caminho do arquivo: "); Scanner scan = new
+	 * Scanner(System.in);
+	 * 
+	 * String caminhoArquivo = scan.nextLine(); scan.close(); return caminhoArquivo;
+	 * }
+	 */
 
 	public void LeArquivo(String caminhoArquivo) {
+		System.out.println(caminhoArquivo);
 
-		Scanner File = null;
 		try {
 
-			File = new Scanner(new java.io.File(caminhoArquivo));
+			Scanner File = new Scanner(new File(caminhoArquivo));
+
+			while (File.hasNextLine()) {
+
+				ConcatenaArquivo(File.nextLine().toString());
+			}
+			File.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		while (File.hasNextLine()) {
-			this.ConcatenaArquivo(File.nextLine().toString());
-		}
 	}
 
 	public void ConcatenaArquivo(String Linha) {
+		//System.out.println("concat");
 		this.arquivo = this.arquivo + Linha.toString();
-		// System.out.println(this.arquivo);
+		//System.out.println(this.arquivo);
 	}
 
 	public void ProcessaArquivo(Musica musica) {
