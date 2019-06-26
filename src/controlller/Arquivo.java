@@ -58,27 +58,29 @@ public class Arquivo {
 	}
 
 	public void ConcatenaArquivo(String Linha) {
-		//System.out.println("concat");
+
 		this.arquivo = this.arquivo + Linha.toString();
-		//System.out.println(this.arquivo);
+		// System.out.println(this.arquivo);
 	}
 
 	public void ProcessaArquivo(Musica musica) {
-		musica = new Musica();
-		for (int i = 0; i < this.arquivo.length(); i++) {
+
+		for (int i = 0; i < arquivo.length(); i++) {
 			if (i > 1) {
-				char c0 = this.arquivo.charAt(i - 1);
-				char c1 = this.arquivo.charAt(i);
+				char c0 = arquivo.charAt(i - 1);
+				char c1 = arquivo.charAt(i);
 				musica.manipulaMusica(c1, c0);
+				
 
 			} else {
 				char c0 = ' ';
-				char c1 = this.arquivo.charAt(i);
+				char c1 = arquivo.charAt(i);
 
 				musica.manipulaMusica(c1, c0);
 				// musica.executaFrameAtual();
 			}
 
 		}
+
 	}
 }

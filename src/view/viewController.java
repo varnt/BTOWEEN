@@ -91,14 +91,13 @@ public class viewController extends Application {
 	
 	@FXML
 	public void onAbrirArquivoAction() {
-		//System.out.println("Salvar");
 		FileChooser fc = new FileChooser();
 		File selectedFile = fc.showOpenDialog(null);
 		String caminhoArquivo;
 		if (selectedFile != null) {
 			 caminhoArquivo = selectedFile.getAbsolutePath();
-			 
 			 this.arquivo.LeArquivo(caminhoArquivo);
+			 System.out.println("processa");
 			 this.arquivo.ProcessaArquivo(musica);
 		}
 		else
