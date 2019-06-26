@@ -1,20 +1,18 @@
 package view;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
 
-import org.jfugue.player.Player;
-
+import controlller.Arquivo;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import model.MusicFrame;
+import javafx.stage.FileChooser;
 import model.Musica;
-import controlller.Arquivo;
-import javafx.application.Application;
 
 
 public class viewController extends Application {
@@ -94,8 +92,16 @@ public class viewController extends Application {
 	@FXML
 	public void onAbrirArquivoAction() {
 		System.out.println("Salvar");
-		String caminhoArquivo = this.arquivo.caminhoArquivo();
-		this.arquivo.LeArquivo(caminhoArquivo);	
+		FileChooser fc = new FileChooser();
+		File selectedFile = fc.showOpenDialog(null);
+		String caminhoArquivo;
+		if (selectedFile != null) {
+			 caminhoArquivo = selectedFile.getAbsolutePath();
+			 this.arquivo.LeArquivo(caminhoArquivo);	
+		}
+		else
+		{}
+		
 		
 	}
 	
