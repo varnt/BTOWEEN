@@ -2,7 +2,6 @@ package view;
 
 import java.io.File;
 import java.io.IOException;
-
 import controlller.Arquivo;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -14,6 +13,9 @@ import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import model.MusicFrame;
 import model.Musica;
+import org.jfugue.midi.MidiFileManager;
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
 
 
 public class viewController extends Application {
@@ -22,6 +24,8 @@ public class viewController extends Application {
 	private String volumeSolicitado;
 	private Musica musica;
 	private Arquivo arquivo;
+	private Player player;
+
 
 	
 	@Override
@@ -75,7 +79,8 @@ public class viewController extends Application {
 	public void onPLayPauseAction() {
 		System.out.println("PlayPause");
 		for (MusicFrame model : musica.getListaFrames()) {
-			musica.executaFrameAtual();
+			//musica.executaFrameAtual(player);
+			model.executaFrameMusic(player);
 		}
 	}
 
@@ -115,7 +120,8 @@ public class viewController extends Application {
 
 	public viewController() {
 		// TODO Auto-generated constructor stub
-		 this.musica = new Musica();
+		this.player = new Player();
+		 this.musica = new Musica(this.player);
 		 this.arquivo = new Arquivo(this.musica);
 	}
 

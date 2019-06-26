@@ -32,10 +32,10 @@ public class Musica {
 		return this.listaFrames;
 	}
 
-	public Musica() {
+	public Musica(Player player) {
 		this.atualFrame = new MusicFrame();
 		this.listaFrames = new ArrayList<MusicFrame>();
-		this.player = new Player();
+		this.player = player;
 	}
 
 	public void salvaMIDI() {
@@ -134,9 +134,10 @@ public class Musica {
 		return;
 	}
 
-	public void executaFrameAtual() {
-		this.atualFrame.executaFrameMusic(this.player);
-	}
+	public void executaFrameAtual(Player player) {
+		System.out.println("ExecutaFrame");
+		this.atualFrame.executaFrameMusic(player);
+	}	
 
 	public void manipulaMusica(char caractereEntrada, char caractereAnterior) {
 
