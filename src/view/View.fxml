@@ -20,7 +20,7 @@
                   <Font name="Arial" size="25.0" />
                </font>
             </Text>
-            <TextArea layoutX="50.0" layoutY="104.0" prefHeight="200.0" prefWidth="352.0" />
+            <TextArea fx:id="AreaTexto" layoutX="50.0" layoutY="104.0" prefHeight="200.0" prefWidth="352.0" />
             <Text layoutX="442.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOL: varCurrentVOL" />
             <Text layoutX="442.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BPM: varcurrentBPM" />
             <Text layoutX="442.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nota: VarcurrentNota" />

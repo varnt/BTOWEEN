@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import model.MusicFrame;
@@ -52,7 +53,10 @@ public class viewController extends Application {
 	private Button Salvar;
 	@FXML
 	private Button AbrirArquivo;
-
+	
+	@FXML
+	private TextArea AreaTexto;
+	
 	@FXML
 	
 	public void setVolumeAtual(String VolumeSolicitado) {

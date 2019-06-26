@@ -56,6 +56,25 @@ public class Arquivo {
 		}
 
 	}
+	
+	public void ExibeArquivo(String caminhoArquivo) {
+		//System.out.println(caminhoArquivo);
+
+		try {
+
+			Scanner File = new Scanner(new File(caminhoArquivo));
+
+			while (File.hasNextLine()) {
+
+				ConcatenaArquivo(File.nextLine().toString());
+			}
+			File.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 	public void ConcatenaArquivo(String Linha) {
 
