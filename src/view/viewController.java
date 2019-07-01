@@ -22,7 +22,9 @@ import org.jfugue.player.Player;
 public class viewController extends Application {
 
 	private String volumeAtual; //valor que tem no volume
-	private String volumeSolicitado;
+	
+	private int volumeSolicitado=0;
+	
 	private Musica musica;
 	private Arquivo arquivo;
 	private Player player;
@@ -58,9 +60,8 @@ public class viewController extends Application {
 	private TextArea AreaTexto;
 	
 	@FXML
-	
-	public void setVolumeAtual(String VolumeSolicitado) {
-		this.volumeSolicitado = VolumeSolicitado;
+	public void setVolumeAtual(int VolumeFinal) {
+		this.volumeAtual = Integer.toString(VolumeFinal);
 	}
 	public String getVolumeAtual() {
 		return this.volumeAtual;
@@ -68,14 +69,16 @@ public class viewController extends Application {
 
 	public void onbtVolUPAction() {
 		System.out.println("Vol UP");
-
-		this.setVolumeAtual("UP");
+		
+		this.setVolumeAtual(Integer.parseInt(this.volumeAtual)+volumeSolicitado);
+		
 	}
 
 	@FXML
 	public void onbtVolDOWNAction() {
 		System.out.println("Vol DOWN");
-		this.setVolumeAtual("DOWN");
+		
+        this.volumeSolicitado = Math.max(volumeSolicitado, 0);
 	}
 
 
@@ -83,8 +86,7 @@ public class viewController extends Application {
 	public void onPLayPauseAction() {
 		System.out.println("PlayPause");
 		for (MusicFrame model : musica.getListaFrames()) {
-			//musica.executaFrameAtual(player);
-			model.executaFrameMusic(player);
+			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
 		}
 	}
 

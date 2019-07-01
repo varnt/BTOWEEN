@@ -13,7 +13,7 @@ public class Musica {
 
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
-	private Player player;
+	//private Player player;
 
 	private static final String A = "69", B = "71", C = "60", D = "62", E = "64", F = "65", G = "67";
 	private static final double aumenta10porcento = 1.1;
@@ -122,7 +122,7 @@ public class Musica {
 		final MusicFrame novoFrame;
 		final Volume novoVolume;
 
-		if (Integer.parseInt(volume) > Integer.parseInt(VOLUME_MAX)) {
+		if (Integer.parseInt(volume) > Integer.parseInt(VOLUME_MAX)){
 			novoVolume = new Volume(VOLUME_MAX);
 		} else
 			novoVolume = new Volume(volume);

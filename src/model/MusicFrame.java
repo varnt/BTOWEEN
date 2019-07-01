@@ -15,6 +15,8 @@ public class MusicFrame {
 	private static final String INSTR_DEFAULT = "PIANO";
 	private static final String BPM_DEFAULT = "120";
 	private static final String VOLUME_DEFAULT = "50";
+	private static final int VOLUME_MAX = 127;
+
 
 	public MusicFrame() {
 
@@ -93,6 +95,23 @@ public class MusicFrame {
 		String som = (volume + instrumento + " " + nota);
 		
 		player.play(som);
+		return;
+	}
+	
+	public void executaFrameMusicAlterandoVolume(Player player, int codigoVolume) {
+		
+		int volumeAlterado = Integer.parseInt(this.getCodigoVolume()) + codigoVolume;
+		
+		volumeAlterado = Math.min(volumeAlterado, VOLUME_MAX);
+		
+		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
+		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
+		String volume = (":CON(7, " + Integer.toString(volumeAlterado) + ") ");
+		String instrumento = this.getCodigotInstrumento();
+		String som = (volume + instrumento + " " + nota);
+		player.play(som);
+		
+		
 		return;
 	}
 	
