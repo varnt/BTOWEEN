@@ -97,8 +97,15 @@ public class viewController extends Application {
 	@FXML
 	public void onSalvarAction() {
 		System.out.println("Salvar");
-		// mudavolume();
-		this.musica.salvaMIDI();
+		
+		if(this.musica.salvaMIDI()) {
+			//inserir text box que diz que arquivo foi salvo
+		}
+		else {
+			//text box 
+		}
+			
+	
 	}
 	
 	@FXML

@@ -1,13 +1,13 @@
 package model;
 
-import java.awt.TextArea;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import org.jfugue.midi.MidiFileManager;
-import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
+import org.jfugue.pattern.*;
 
 public class Musica {
 
@@ -38,7 +38,7 @@ public class Musica {
 		this.player = player;
 	}
 
-	public void salvaMIDI() {
+	public boolean salvaMIDI() {
 		StringBuilder acumulaSons = new StringBuilder();
 		
 		for (MusicFrame model : this.getListaFrames()) {
@@ -50,10 +50,12 @@ public class Musica {
 			Pattern pattern = new Pattern(acumulaSons.toString());
 			MidiFileManager.savePatternToMidi(pattern, new File("BTOWEEN_Music.mid"));
 			System.out.println("salvou!");
+			return true;
 		}
 		catch (IOException ex) {
 			System.out.println("Nao salvou!");
-			}
+			return false;
+		}
 		
 	}
 
@@ -103,7 +105,6 @@ public class Musica {
 
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		// System.out.println(novoFrame.getCodigotInstrumento() + "adicionado\n");
 	}
 
 	public void mudaBPM(String codigoNovoBPM) {
@@ -130,7 +131,6 @@ public class Musica {
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
 
-		// System.out.println(novoFrame.getCodigoVolume() + "adicionado\n");
 		return;
 	}
 
@@ -316,7 +316,7 @@ public class Musica {
 
 	private void repeteFrame() {
 		this.adicionaNovoFrame(this.atualFrame);
-		System.out.println("Frame duplicado");
+		//System.out.println("Frame duplicado");
 	}
 
 }

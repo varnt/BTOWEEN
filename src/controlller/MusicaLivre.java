@@ -21,6 +21,8 @@ public class MusicaLivre {
 
 		File evidence = new File(teclado.toString());
 		System.out.println(evidence);
+		
+		teclado.close();
 
 	}
 
