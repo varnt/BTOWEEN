@@ -21,9 +21,9 @@ import org.jfugue.player.Player;
 
 public class viewController extends Application {
 
-	private String volumeAtual; //valor que tem no volume
+	private String volumeAtual=""; //valor que tem no volume
 	
-	private int volumeSolicitado=0;
+	private int volumeSolicitado=10;
 	
 	private Musica musica;
 	private Arquivo arquivo;
@@ -67,18 +67,25 @@ public class viewController extends Application {
 		return this.volumeAtual;
 	}
 
+	@FXML
 	public void onbtVolUPAction() {
 		System.out.println("Vol UP");
+		this.volumeSolicitado += 1;
 		
-		this.setVolumeAtual(Integer.parseInt(this.volumeAtual)+volumeSolicitado);
+		this.volumeAtual=Integer.toString(((Integer.parseInt(this.volumeAtual)+volumeSolicitado)));
+
+		System.out.println("volume aumentado");
+		System.out.println("volume atual: " + this.volumeAtual);
 		
 	}
 
 	@FXML
 	public void onbtVolDOWNAction() {
 		System.out.println("Vol DOWN");
-		
-        this.volumeSolicitado = Math.max(volumeSolicitado, 0);
+		int vol = this.volumeSolicitado -1;
+		this.volumeSolicitado = Math.max(vol, 0); //volume nao pode ser negativo
+		System.out.println("volume diminuido");
+		System.out.println("volume atual: " + this.volumeSolicitado);
 	}
 
 

@@ -7,13 +7,12 @@ import java.util.regex.Pattern;
 
 import org.jfugue.midi.MidiFileManager;
 import org.jfugue.player.Player;
-import org.jfugue.pattern.*;
 
 public class Musica {
 
 	private MusicFrame atualFrame;
 	private ArrayList<MusicFrame> listaFrames;
-	//private Player player;
+	private Player player;
 
 	private static final String A = "69", B = "71", C = "60", D = "62", E = "64", F = "65", G = "67";
 	private static final double aumenta10porcento = 1.1;
@@ -35,7 +34,7 @@ public class Musica {
 	public Musica(Player player) {
 		this.atualFrame = new MusicFrame();
 		this.listaFrames = new ArrayList<MusicFrame>();
-		this.player = player;
+		this.player= player;
 	}
 
 	public boolean salvaMIDI() {
