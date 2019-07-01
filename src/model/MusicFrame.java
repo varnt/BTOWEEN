@@ -104,6 +104,13 @@ public class MusicFrame {
 		
 		volumeAlterado = Math.min(volumeAlterado, VOLUME_MAX);
 		
+		if(volumeAlterado > VOLUME_MAX)
+			volumeAlterado= VOLUME_MAX;	
+		else if(volumeAlterado < 0)
+				volumeAlterado= 0;
+
+		
+		
 		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
 		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
 		String volume = (":CON(7, " + Integer.toString(volumeAlterado) + ") ");
