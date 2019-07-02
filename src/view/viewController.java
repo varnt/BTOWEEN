@@ -50,9 +50,9 @@ public class viewController extends Application {
 	@FXML
 	private Button btVolDOWN;
 	@FXML
-	private Button playPause;
-	@FXML
-	private Button MusicaLivre;
+	private Button Play;
+	//@FXML
+	//private Button MusicaLivre;
 	@FXML
 	private Button Salvar;
 	@FXML
@@ -133,7 +133,7 @@ public class viewController extends Application {
 		return;
 	}
 
-	@FXML
+	/*@FXML
 	public void onPLayPauseAction() {
 		System.out.println("PlayPause");
 		
@@ -143,10 +143,10 @@ public class viewController extends Application {
 
 		atualizaGUI();
 		return;
-	}
+	}*/
 
 	@FXML
-	public void onMusicaLivreAction() {
+	public void onPlayButtonAction() {
 		System.out.println("MusicaLivre");
 
 		
@@ -157,7 +157,7 @@ public class viewController extends Application {
 		char caractereAnterior = '0';
 		for (int i = 0; i < entrada.length(); i++){
 			musica.manipulaMusica(entrada.charAt(i), caractereAnterior);
-			//atualizaGUI();
+		
 		}
 		
 		for (MusicFrame model : musica.getListaFrames()) {
@@ -165,8 +165,6 @@ public class viewController extends Application {
 			atualizaGUI();
 			
 		}
-		
-		
 
 	}
 
@@ -200,7 +198,6 @@ public class viewController extends Application {
 			System.out.println("processa");
 			AreaTexto.setText(conteudoParaTextArea);
 			this.arquivo.ProcessaArquivo(musica);
-			
 			
 		} 
 		else {
