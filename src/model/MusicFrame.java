@@ -101,21 +101,21 @@ public class MusicFrame {
 	public void executaFrameMusicAlterandoVolume(Player player, int codigoVolume) {
 		
 		int volumeAlterado = Integer.parseInt(this.getCodigoVolume()) + codigoVolume;
-		
 		volumeAlterado = Math.min(volumeAlterado, VOLUME_MAX);
-		
 		if(volumeAlterado > VOLUME_MAX)
 			volumeAlterado= VOLUME_MAX;	
 		else if(volumeAlterado < 0)
-				volumeAlterado= 0;
+				volumeAlterado= 0;		
 
+		String tempo = "T" + this.getCodigoBPM();
 		
+//		String som = (tempo + " " + volume + instrumento + " " + nota);
 		
 		int modificadorOitava = this.Oitava.getcodigoModificadordeOitava();
 		String nota = Integer.toString((Integer.parseInt(this.Nota.getCodigoNota())+ modificadorOitava));
 		String volume = (":CON(7, " + Integer.toString(volumeAlterado) + ") ");
 		String instrumento = this.getCodigotInstrumento();
-		String som = (volume + instrumento + " " + nota);
+		String som = (tempo + " " + volume + instrumento + " " + nota);
 		player.play(som);
 		
 		
@@ -154,8 +154,8 @@ public class MusicFrame {
 		return this.Instrumento.getCodigoInstrumento();
 	}
 
-	public BPM getBPM() {
-		return BPM;
+	public String getCodigoBPM() {
+		return this.BPM.getCodigoBPM();
 	}
 	
 	public String getCodigoVolume() {

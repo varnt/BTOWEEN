@@ -84,15 +84,10 @@ public class Musica {
 	public void mudaOitava(String oitava, int modificadorOitava) {
 		final MusicFrame novoFrame;
 		final Oitava novaOitava = new Oitava(oitava);
-
 		novaOitava.setcodigoModificadordeOitava(modificadorOitava);
-
 		novoFrame = new MusicFrame(novaOitava, this.atualFrame);
-
 		this.adicionaNovoFrame(novoFrame);
-
 		this.atualFrame = novoFrame;
-
 		// System.out.println(novoFrame.getOitava() + "adicionada\n");
 		return;
 	}
@@ -112,7 +107,7 @@ public class Musica {
 		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		// System.out.println(novoFrame.getBPM() + "adicionado\n");
+		System.out.println(novoFrame.getBPM() + "adicionado\n");
 		return;
 	}
 
