@@ -38,22 +38,25 @@ public class Arquivo {
 	 * }
 	 */
 
-	public void LeArquivo(String caminhoArquivo) {
+	public String LeArquivo(String caminhoArquivo) {
 		System.out.println(caminhoArquivo);
-
+		String conteudoArquivo="";
+		
 		try {
-
 			Scanner File = new Scanner(new File(caminhoArquivo));
 
 			while (File.hasNextLine()) {
-
-				ConcatenaArquivo(File.nextLine().toString());
+				
+				conteudoArquivo += File.nextLine().toString();
+				//ConcatenaArquivo(File.nextLine().toString());
 			}
 			File.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return conteudoArquivo;
 
 	}
 	

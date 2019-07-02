@@ -39,7 +39,7 @@ public class viewController extends Application {
 			stage.setScene(scene);
 			stage.show();
 //			this.atualizaGUI();
-		
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -60,47 +60,43 @@ public class viewController extends Application {
 
 	@FXML
 	private TextArea AreaTexto;
-	
-	@FXML
-	//private TextField txtSegundoNumero;
-	private javafx.scene.control.TextField txtSegundoNumero;
 
 	@FXML
 	private TextField txtVolumeAtual;
 
 	@FXML
 	private TextField txtNotaAtual;
-	
+
 	@FXML
 	private TextField txtInstrumentoAtual;
-	
+
 	@FXML
 	private TextField txtBPMAtual;
-	
+
 	@FXML
 	private TextField txtOitavaAtual;
-	
+
 	@FXML
-	private void atualizaGUI(){
+	private void atualizaGUI() {
 		txtVolumeAtual.setText(Integer.toString(this.volumeAtual));
 		txtNotaAtual.setText(this.musica.getAtualFrame().getCodigoNota().getCodigoNota());
 		txtInstrumentoAtual.setText(this.musica.getAtualFrame().getCodigotInstrumento());
 		txtBPMAtual.setText(this.musica.getAtualFrame().getCodigoBPM());
 		txtOitavaAtual.setText(this.musica.getAtualFrame().getCodigoOitava());
 	}
-	
+
 	@FXML
 	public void setVolumeAtual(int volumeSolicitado) {
-	
-		int volume= Integer.parseInt(this.musica.getAtualFrame().getCodigoVolume()) + volumeSolicitado;
-		
-		if(volume > VOLUME_MAX)
+
+		int volume = Integer.parseInt(this.musica.getAtualFrame().getCodigoVolume()) + volumeSolicitado;
+
+		if (volume > VOLUME_MAX)
 			this.volumeAtual = VOLUME_MAX;
-			else if(volume < 0)
-				this.volumeAtual = 0;
+		else if (volume < 0)
+			this.volumeAtual = 0;
 		else
 			this.volumeAtual = volume;
-		
+
 		atualizaGUI();
 	}
 
@@ -110,11 +106,11 @@ public class viewController extends Application {
 
 	@FXML
 	public void onbtVolUPAction() {
-		
+
 		System.out.println("Vol UP");
 
 		int vol = this.volumeSolicitado += 1;
-		
+
 		this.setVolumeAtual(vol);
 		System.out.println("volume solicitado: " + this.volumeSolicitado);
 		System.out.println("volume atual: " + this.volumeAtual);
@@ -140,10 +136,11 @@ public class viewController extends Application {
 	@FXML
 	public void onPLayPauseAction() {
 		System.out.println("PlayPause");
+		
 		for (MusicFrame model : musica.getListaFrames()) {
 			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
 		}
-		
+
 		atualizaGUI();
 		return;
 	}
@@ -151,7 +148,26 @@ public class viewController extends Application {
 	@FXML
 	public void onMusicaLivreAction() {
 		System.out.println("MusicaLivre");
-		// mudavolume();
+
+		
+		String entrada = AreaTexto.getText();
+		System.out.println(entrada);
+		
+		musica.getListaFrames().clear();
+		char caractereAnterior = '0';
+		for (int i = 0; i < entrada.length(); i++){
+			musica.manipulaMusica(entrada.charAt(i), caractereAnterior);
+			//atualizaGUI();
+		}
+		
+		for (MusicFrame model : musica.getListaFrames()) {
+			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
+			atualizaGUI();
+			
+		}
+		
+		
+
 	}
 
 	@FXML
@@ -163,22 +179,31 @@ public class viewController extends Application {
 		} else {
 			// text box
 		}
-		
+
 		atualizaGUI();
 		return;
 	}
 
 	@FXML
 	public void onAbrirArquivoAction() {
+		
 		FileChooser fc = new FileChooser();
+		
 		File selectedFile = fc.showOpenDialog(null);
+		
 		String caminhoArquivo;
+		String conteudoParaTextArea="";
+		
 		if (selectedFile != null) {
 			caminhoArquivo = selectedFile.getAbsolutePath();
-			this.arquivo.LeArquivo(caminhoArquivo);
+			conteudoParaTextArea = this.arquivo.LeArquivo(caminhoArquivo);
 			System.out.println("processa");
+			AreaTexto.setText(conteudoParaTextArea);
 			this.arquivo.ProcessaArquivo(musica);
-		} else {
+			
+			
+		} 
+		else {
 		}
 
 		atualizaGUI();
