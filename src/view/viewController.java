@@ -156,15 +156,19 @@ public class viewController extends Application {
 		musica.getListaFrames().clear();
 		char caractereAnterior = '0';
 		for (int i = 0; i < entrada.length(); i++){
+			atualizaGUI();
 			musica.manipulaMusica(entrada.charAt(i), caractereAnterior);
 		
 		}
 		
 		for (MusicFrame model : musica.getListaFrames()) {
-			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
 			atualizaGUI();
+			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
 			
 		}
+		
+		atualizaGUI();
+		return;
 
 	}
 
@@ -216,7 +220,9 @@ public class viewController extends Application {
 
 	public static void main(String[] args) {
 
-		launch(args); // descomentar
+		launch(args); 
+		
+		// descomentar
 		// Arquivo arquivo = new Arquivo();
 
 		/*
