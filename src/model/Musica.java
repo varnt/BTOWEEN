@@ -107,7 +107,7 @@ public class Musica {
 		novoFrame = new MusicFrame(novoBPM, this.atualFrame);
 		this.adicionaNovoFrame(novoFrame);
 		this.atualFrame = novoFrame;
-		System.out.println(novoFrame.getBPM() + "adicionado\n");
+		System.out.println(novoFrame.getCodigoBPM() + "adicionado\n");
 		return;
 	}
 

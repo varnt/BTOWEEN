@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import model.MusicFrame;
@@ -37,6 +38,8 @@ public class viewController extends Application {
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
+//			this.atualizaGUI();
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +60,35 @@ public class viewController extends Application {
 
 	@FXML
 	private TextArea AreaTexto;
+	
+	@FXML
+	//private TextField txtSegundoNumero;
+	private javafx.scene.control.TextField txtSegundoNumero;
 
+	@FXML
+	private TextField txtVolumeAtual;
+
+	@FXML
+	private TextField txtNotaAtual;
+	
+	@FXML
+	private TextField txtInstrumentoAtual;
+	
+	@FXML
+	private TextField txtBPMAtual;
+	
+	@FXML
+	private TextField txtOitavaAtual;
+	
+	@FXML
+	private void atualizaGUI(){
+		txtVolumeAtual.setText(Integer.toString(this.volumeAtual));
+		txtNotaAtual.setText(this.musica.getAtualFrame().getCodigoNota().getCodigoNota());
+		txtInstrumentoAtual.setText(this.musica.getAtualFrame().getCodigotInstrumento());
+		txtBPMAtual.setText(this.musica.getAtualFrame().getCodigoBPM());
+		txtOitavaAtual.setText(this.musica.getAtualFrame().getCodigoOitava());
+	}
+	
 	@FXML
 	public void setVolumeAtual(int volumeSolicitado) {
 	
@@ -70,6 +101,7 @@ public class viewController extends Application {
 		else
 			this.volumeAtual = volume;
 		
+		atualizaGUI();
 	}
 
 	public int getVolumeAtual() {
@@ -87,6 +119,7 @@ public class viewController extends Application {
 		System.out.println("volume solicitado: " + this.volumeSolicitado);
 		System.out.println("volume atual: " + this.volumeAtual);
 
+		atualizaGUI();
 		return;
 
 	}
@@ -96,13 +129,11 @@ public class viewController extends Application {
 		System.out.println("Vol DOWN");
 
 		int vol = this.volumeSolicitado -= 1;
-
-		// vol = Math.max(vol, 0); //volume nao pode ser negativo
-
 		this.setVolumeAtual(vol);
 		System.out.println("volume solicitado: " + this.volumeSolicitado);
 		System.out.println("volume atual: " + this.volumeAtual);
 
+		atualizaGUI();
 		return;
 	}
 
@@ -112,6 +143,9 @@ public class viewController extends Application {
 		for (MusicFrame model : musica.getListaFrames()) {
 			model.executaFrameMusicAlterandoVolume(player, volumeSolicitado);
 		}
+		
+		atualizaGUI();
+		return;
 	}
 
 	@FXML
@@ -129,7 +163,9 @@ public class viewController extends Application {
 		} else {
 			// text box
 		}
-
+		
+		atualizaGUI();
+		return;
 	}
 
 	@FXML
@@ -145,6 +181,8 @@ public class viewController extends Application {
 		} else {
 		}
 
+		atualizaGUI();
+		return;
 	}
 
 	public viewController() {
